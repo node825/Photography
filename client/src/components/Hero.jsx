@@ -4,6 +4,14 @@ import { useState } from 'react';
 import FloatingSquares from './FloatingSquares';
 import GoldenGlitter from './GoldenGlitter';
 
+// Import decorative images
+import img1 from '../assets/gallery/גיל שנה/גיל שנה (1).jpg';
+import img2 from '../assets/gallery/סטודיו/סטודיו (3).jpg';
+import img3 from '../assets/gallery/חאלקה/חאלקה (1).jpg';
+import img4 from '../assets/gallery/חוץ/חוץ (1).jpg';
+import img5 from '../assets/gallery/מוצרים/מזון.jpg';
+import img6 from '../assets/gallery/גיל שנה/גיל שנה (12).jpg';
+
 const Hero = () => {
   const { t } = useTranslation();
   const [glitterCoords, setGlitterCoords] = useState({ x: 0, y: 0 });
@@ -34,7 +42,7 @@ const Hero = () => {
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         {/* Top Left */}
         <motion.img
-          src="/src/assets/gallery/גיל שנה/גיל שנה (1).jpg"
+          src={img1}
           alt="scattered"
           initial={{ opacity: 0, rotate: -15, y: 50 }}
           animate={{ opacity: 0.15, rotate: -15, y: 0 }}
@@ -44,7 +52,7 @@ const Hero = () => {
 
         {/* Top Right */}
         <motion.img
-          src="/src/assets/gallery/סטודיו/סטודיו (3).jpg"
+          src={img2}
           alt="scattered"
           initial={{ opacity: 0, rotate: 20, y: 50 }}
           animate={{ opacity: 0.15, rotate: 20, y: 0 }}
@@ -54,7 +62,7 @@ const Hero = () => {
 
         {/* Bottom Left */}
         <motion.img
-          src="/src/assets/gallery/חאלקה/חאלקה (1).jpg"
+          src={img3}
           alt="scattered"
           initial={{ opacity: 0, rotate: 25, y: -50 }}
           animate={{ opacity: 0.15, rotate: 25, y: 0 }}
@@ -64,7 +72,7 @@ const Hero = () => {
 
         {/* Bottom Right */}
         <motion.img
-          src="/src/assets/gallery/חוץ/חוץ (1).jpg"
+          src={img4}
           alt="scattered"
           initial={{ opacity: 0, rotate: -20, y: -50 }}
           animate={{ opacity: 0.15, rotate: -20, y: 0 }}
@@ -74,7 +82,7 @@ const Hero = () => {
 
         {/* Middle Left */}
         <motion.img
-          src="/src/assets/gallery/מוצרים/מזון.jpg"
+          src={img5}
           alt="scattered"
           initial={{ opacity: 0, rotate: -10, x: -50 }}
           animate={{ opacity: 0.12, rotate: -10, x: 0 }}
@@ -84,7 +92,7 @@ const Hero = () => {
 
         {/* Middle Right */}
         <motion.img
-          src="/src/assets/gallery/גיל שנה/גיל שנה (12).jpg"
+          src={img6}
           alt="scattered"
           initial={{ opacity: 0, rotate: 15, x: 50 }}
           animate={{ opacity: 0.12, rotate: 15, x: 0 }}
