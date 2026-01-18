@@ -19,7 +19,7 @@ const Hero = () => {
   };
 
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center bg-gradient-to-br from-background via-mediumGray to-lightGray relative overflow-hidden">
+    <section id="home" className="min-h-screen flex items-center justify-center bg-gradient-to-br from-background via-mediumGray to-lightGray relative">
       {showGlitter && <GoldenGlitter x={glitterCoords.x} y={glitterCoords.y} count={12} />}
       {/* Floating animated squares */}
       <FloatingSquares />

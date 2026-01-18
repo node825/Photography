@@ -25,7 +25,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="bg-background/95 text-textDark py-0 px-6 sticky top-0 z-50 shadow-lg backdrop-blur-md border-b border-primary/30 h-10">
+    <nav className="bg-background text-textDark py-3 px-6 sticky top-0 z-50 shadow-lg backdrop-blur-md border-b border-primary/30 h-16">
       {showGlitter && <GoldenGlitter x={glitterCoords.x} y={glitterCoords.y} count={8} />}
       <div className="container mx-auto flex justify-between items-center h-full gap-4">
         {/* Left - Navigation Links */}
