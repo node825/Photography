@@ -4,14 +4,6 @@ import { useState } from 'react';
 import FloatingSquares from './FloatingSquares';
 import GoldenGlitter from './GoldenGlitter';
 
-// Import decorative images
-import img1 from '../assets/gallery/גיל שנה/גיל שנה (1).jpg';
-import img2 from '../assets/gallery/סטודיו/סטודיו (3).jpg';
-import img3 from '../assets/gallery/חאלקה/חאלקה (1).jpg';
-import img4 from '../assets/gallery/חוץ/חוץ (1).jpg';
-import img5 from '../assets/gallery/מוצרים/מזון.jpg';
-import img6 from '../assets/gallery/גיל שנה/גיל שנה (12).jpg';
-
 const Hero = () => {
   const { t } = useTranslation();
   const [glitterCoords, setGlitterCoords] = useState({ x: 0, y: 0 });
@@ -41,64 +33,94 @@ const Hero = () => {
       {/* Scattered decorative images */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         {/* Top Left */}
-        <motion.img
-          src={img1}
-          alt="scattered"
+        <motion.div
           initial={{ opacity: 0, rotate: -15, y: 50 }}
           animate={{ opacity: 0.15, rotate: -15, y: 0 }}
           transition={{ duration: 1.2, delay: 0.3 }}
-          className="absolute w-32 h-32 object-cover rounded-lg -top-10 -left-16 shadow-2xl"
-        />
+          className="absolute w-32 h-32 rounded-lg -top-10 -left-16 shadow-2xl overflow-hidden"
+        >
+          <img
+            src={new URL('../assets/gallery/גיל שנה/גיל שנה (1).jpg', import.meta.url).href}
+            alt="scattered"
+            className="w-full h-full object-cover"
+            onError={(e) => e.target.style.display = 'none'}
+          />
+        </motion.div>
 
         {/* Top Right */}
-        <motion.img
-          src={img2}
-          alt="scattered"
+        <motion.div
           initial={{ opacity: 0, rotate: 20, y: 50 }}
           animate={{ opacity: 0.15, rotate: 20, y: 0 }}
           transition={{ duration: 1.2, delay: 0.5 }}
-          className="absolute w-28 h-28 object-cover rounded-lg -top-5 -right-12 shadow-2xl"
-        />
+          className="absolute w-28 h-28 rounded-lg -top-5 -right-12 shadow-2xl overflow-hidden"
+        >
+          <img
+            src={new URL('../assets/gallery/סטודיו/סטודיו (3).jpg', import.meta.url).href}
+            alt="scattered"
+            className="w-full h-full object-cover"
+            onError={(e) => e.target.style.display = 'none'}
+          />
+        </motion.div>
 
         {/* Bottom Left */}
-        <motion.img
-          src={img3}
-          alt="scattered"
+        <motion.div
           initial={{ opacity: 0, rotate: 25, y: -50 }}
           animate={{ opacity: 0.15, rotate: 25, y: 0 }}
           transition={{ duration: 1.2, delay: 0.7 }}
-          className="absolute w-36 h-36 object-cover rounded-lg -bottom-8 -left-20 shadow-2xl"
-        />
+          className="absolute w-36 h-36 rounded-lg -bottom-8 -left-20 shadow-2xl overflow-hidden"
+        >
+          <img
+            src={new URL('../assets/gallery/חאלקה/חאלקה (1).jpg', import.meta.url).href}
+            alt="scattered"
+            className="w-full h-full object-cover"
+            onError={(e) => e.target.style.display = 'none'}
+          />
+        </motion.div>
 
         {/* Bottom Right */}
-        <motion.img
-          src={img4}
-          alt="scattered"
+        <motion.div
           initial={{ opacity: 0, rotate: -20, y: -50 }}
           animate={{ opacity: 0.15, rotate: -20, y: 0 }}
           transition={{ duration: 1.2, delay: 0.4 }}
-          className="absolute w-32 h-32 object-cover rounded-lg -bottom-4 -right-16 shadow-2xl"
-        />
+          className="absolute w-32 h-32 rounded-lg -bottom-4 -right-16 shadow-2xl overflow-hidden"
+        >
+          <img
+            src={new URL('../assets/gallery/חוץ/חוץ (1).jpg', import.meta.url).href}
+            alt="scattered"
+            className="w-full h-full object-cover"
+            onError={(e) => e.target.style.display = 'none'}
+          />
+        </motion.div>
 
         {/* Middle Left */}
-        <motion.img
-          src={img5}
-          alt="scattered"
+        <motion.div
           initial={{ opacity: 0, rotate: -10, x: -50 }}
           animate={{ opacity: 0.12, rotate: -10, x: 0 }}
           transition={{ duration: 1.2, delay: 0.6 }}
-          className="absolute w-24 h-24 object-cover rounded-lg top-1/4 -left-10 shadow-2xl"
-        />
+          className="absolute w-24 h-24 rounded-lg top-1/4 -left-10 shadow-2xl overflow-hidden"
+        >
+          <img
+            src={new URL('../assets/gallery/מוצרים/מזון.jpg', import.meta.url).href}
+            alt="scattered"
+            className="w-full h-full object-cover"
+            onError={(e) => e.target.style.display = 'none'}
+          />
+        </motion.div>
 
         {/* Middle Right */}
-        <motion.img
-          src={img6}
-          alt="scattered"
+        <motion.div
           initial={{ opacity: 0, rotate: 15, x: 50 }}
           animate={{ opacity: 0.12, rotate: 15, x: 0 }}
           transition={{ duration: 1.2, delay: 0.5 }}
-          className="absolute w-28 h-28 object-cover rounded-lg bottom-1/3 -right-8 shadow-2xl"
-        />
+          className="absolute w-28 h-28 rounded-lg bottom-1/3 -right-8 shadow-2xl overflow-hidden"
+        >
+          <img
+            src={new URL('../assets/gallery/גיל שנה/גיל שנה (12).jpg', import.meta.url).href}
+            alt="scattered"
+            className="w-full h-full object-cover"
+            onError={(e) => e.target.style.display = 'none'}
+          />
+        </motion.div>
       </div>
 
       <motion.div
