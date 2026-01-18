@@ -215,7 +215,7 @@ const Contact = () => {
             <h4 className="text-4xl font-heading font-bold text-primary mb-16 text-center">
               שלח לי הודעה
             </h4>
-            <form onSubmit={handleSubmit} className="space-y-8 w-full max-w-2xl mx-auto">
+            <form onSubmit={handleSubmit} className="space-y-8 w-full max-w-xl mx-auto">
               {/* Full Name */}
               <div>
                 <label htmlFor="name" className="block text-lg font-semibold text-primary mb-3">
