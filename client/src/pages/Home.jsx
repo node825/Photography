@@ -13,8 +13,10 @@ const Home = () => {
       <GlobalMouseEffect />
       <FloatingSquares />
 
+      {/* Sticky Navbar - Must be outside z-10 container */}
+      <Navbar />
+
       <div className="relative z-10">
-        <Navbar />
         <Hero />
         <Gallery />
         <Contact />
