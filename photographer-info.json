@@ -1,0 +1,43 @@
+{
+  "photographer": {
+    "name": "רחלי אוסטרוב",
+    "nameEn": "Racheli Ostrov",
+    "phone": "053-419-9158",
+    "phoneRaw": "0534199158",
+    "email": "r4199158@gmail.com",
+    "specialization": "Kids & Family Photography",
+    "categories": [
+      {
+        "id": "kids",
+        "name": "Kids",
+        "nameHe": "ילדים"
+      },
+      {
+        "id": "family",
+        "name": "Family",
+        "nameHe": "משפחה"
+      },
+      {
+        "id": "newborn",
+        "name": "Newborn",
+        "nameHe": "תינוק"
+      },
+      {
+        "id": "toddler",
+        "name": "Toddler",
+        "nameHe": "פעוט"
+      }
+    ]
+  },
+  "contact": {
+    "phone": "053-419-9158",
+    "phoneHref": "tel:0534199158",
+    "email": "r4199158@gmail.com",
+    "emailHref": "mailto:r4199158@gmail.com"
+  },
+  "socialMedia": {
+    "instagram": null,
+    "facebook": null,
+    "whatsapp": "https://wa.me/972534199158"
+  }
+}

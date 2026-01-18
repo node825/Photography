@@ -178,12 +178,12 @@ const Contact = () => {
             {/* Left Column: Contact Information */}
             <motion.div variants={itemVariants} className="space-y-6">
               <h3 className="text-2xl font-heading font-medium text-primary mb-6">
-                {t('contact.photographerName')}
+                רחלי אוסטרוב
               </h3>
 
               {/* Phone */}
               <motion.a
-                href="tel:050-123-4567"
+                href="tel:0534199158"
                 className="flex items-center gap-4 text-textDark hover:text-primary transition-colors group"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
@@ -191,13 +191,13 @@ const Contact = () => {
                 <Phone className="w-6 h-6 text-primary" />
                 <div>
                   <p className="text-sm text-textLight">{t('contact.info.phone')}</p>
-                  <p className="text-lg group-hover:underline">050-123-4567</p>
+                  <p className="text-lg group-hover:underline">053-419-9158</p>
                 </div>
               </motion.a>
 
               {/* Email */}
               <motion.a
-                href="mailto:info@kidsphotos.com"
+                href="mailto:r4199158@gmail.com"
                 className="flex items-center gap-4 text-textDark hover:text-primary transition-colors group"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
@@ -205,7 +205,7 @@ const Contact = () => {
                 <Mail className="w-6 h-6 text-primary" />
                 <div>
                   <p className="text-sm text-textLight">{t('contact.info.email')}</p>
-                  <p className="text-lg group-hover:underline">info@kidsphotos.com</p>
+                  <p className="text-lg group-hover:underline">r4199158@gmail.com</p>
                 </div>
               </motion.a>
             </motion.div>
