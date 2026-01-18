@@ -6,50 +6,47 @@ const Gallery = () => {
   const { t } = useTranslation();
   const [selectedCategory, setSelectedCategory] = useState('all');
 
-  // Gallery data - add your images to src/assets/gallery/ folder
-  // Image naming convention: category-number.jpg (e.g., kids-1.jpg, family-1.jpg)
+  // Gallery data - using local images from src/assets/gallery/
   const galleryItems = [
+    // גיל שנה (Year Old/Toddler)
     {
       id: 1,
-      category: 'kids',
-      title: 'Happy Kids',
-      image: '/src/assets/gallery/kids-1.jpg',
+      category: 'year',
+      title: 'גיל שנה',
+      image: '/src/assets/gallery/גיל שנה/IMG_1383 copy.jpg',
       gradient: 'from-amber-500 to-orange-500'
     },
+    // חאלקה (Family)
     {
       id: 2,
       category: 'family',
-      title: 'Family Moments',
-      image: '/src/assets/gallery/family-1.jpg',
+      title: 'חאלקה',
+      image: '/src/assets/gallery/חאלקה/IMG_1331 copy.jpg',
       gradient: 'from-rose-500 to-pink-500'
     },
+    // חוץ (Outdoor)
     {
       id: 3,
-      category: 'newborn',
-      title: 'Newborn Bliss',
-      image: '/src/assets/gallery/newborn-1.jpg',
+      category: 'outdoor',
+      title: 'חוץ',
+      image: '/src/assets/gallery/חוץ/IMG_7682 copy.jpg',
       gradient: 'from-yellow-400 to-orange-400'
     },
+    // מוצרים (Products)
     {
       id: 4,
-      category: 'kids',
-      title: 'Playful Moments',
-      image: '/src/assets/gallery/kids-2.jpg',
+      category: 'products',
+      title: 'מוצרים',
+      image: '/src/assets/gallery/מוצרים/IMG_3236 copy.jpg',
       gradient: 'from-cyan-500 to-blue-500'
     },
+    // סטודיו (Studio)
     {
       id: 5,
-      category: 'family',
-      title: 'Together Forever',
-      image: '/src/assets/gallery/family-2.jpg',
+      category: 'studio',
+      title: 'סטודיו',
+      image: '/src/assets/gallery/סטודיו/סטודיו (1).jpg',
       gradient: 'from-purple-500 to-pink-500'
-    },
-    {
-      id: 6,
-      category: 'toddler',
-      title: 'Little Explorers',
-      image: '/src/assets/gallery/toddler-1.jpg',
-      gradient: 'from-emerald-500 to-teal-500'
     },
   ];
 
@@ -58,11 +55,12 @@ const Gallery = () => {
     : galleryItems.filter(item => item.category === selectedCategory);
 
   const categories = [
-    { id: 'all', label: 'All' },
-    { id: 'newborn', label: 'Newborn' },
-    { id: 'toddler', label: 'Toddler' },
-    { id: 'kids', label: 'Kids' },
-    { id: 'family', label: 'Family' },
+    { id: 'all', label: 'הכל' },
+    { id: 'year', label: 'גיל שנה' },
+    { id: 'family', label: 'חאלקה' },
+    { id: 'outdoor', label: 'חוץ' },
+    { id: 'products', label: 'מוצרים' },
+    { id: 'studio', label: 'סטודיו' },
   ];
 
   return (
