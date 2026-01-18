@@ -149,210 +149,214 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-16 px-4 bg-mediumGray/30 relative">
+    <section id="contact" className="py-24 px-4 bg-mediumGray/30 relative">
       {showGlitter && <GoldenGlitter x={glitterCoords.x} y={glitterCoords.y} count={10} />}
-      <div className="container mx-auto max-w-6xl">
+      <div className="container mx-auto max-w-4xl">
         <motion.div
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.2 }}
+          className="flex flex-col items-center text-center"
         >
           {/* Section Title */}
           <motion.h2
             variants={itemVariants}
-            className="text-4xl md:text-5xl font-heading font-semibold text-primary text-center mb-4"
+            className="text-5xl md:text-6xl font-heading font-bold text-primary mb-6"
           >
             {t('contact.title')}
           </motion.h2>
 
           <motion.p
             variants={itemVariants}
-            className="text-center text-textDark/80 mb-12 text-lg font-light"
+            className="text-center text-textLight mb-16 text-xl font-light max-w-2xl"
           >
             {t('contact.subtitle')}
           </motion.p>
 
-          {/* Two Column Layout */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
-            {/* Left Column: Contact Information */}
-            <motion.div variants={itemVariants} className="space-y-6">
-              <h3 className="text-2xl font-heading font-medium text-primary mb-6">
-                רחלי אוסטרוב
-              </h3>
+          {/* Contact Information - Centered */}
+          <motion.div variants={itemVariants} className="w-full mb-16">
+            <h3 className="text-3xl font-heading font-semibold text-primary mb-12">
+              רחלי אוסטרוב
+            </h3>
 
+            <div className="flex flex-col md:flex-row justify-center gap-12 md:gap-20 items-center">
               {/* Phone */}
               <motion.a
                 href="tel:0534199158"
-                className="flex items-center gap-4 text-textDark hover:text-primary transition-colors group"
-                whileHover={{ scale: 1.02 }}
+                className="flex flex-col items-center text-center hover:scale-105 transition-transform"
+                whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.98 }}
               >
-                <Phone className="w-6 h-6 text-primary" />
-                <div>
-                  <p className="text-sm text-textLight">{t('contact.info.phone')}</p>
-                  <p className="text-lg group-hover:underline">053-419-9158</p>
-                </div>
+                <Phone className="w-10 h-10 text-primary mb-4" />
+                <p className="text-sm text-textLight mb-2">{t('contact.info.phone')}</p>
+                <p className="text-2xl font-semibold text-primary hover:text-accent transition-colors">053-419-9158</p>
               </motion.a>
 
               {/* Email */}
               <motion.a
                 href="mailto:r4199158@gmail.com"
-                className="flex items-center gap-4 text-textDark hover:text-primary transition-colors group"
-                whileHover={{ scale: 1.02 }}
+                className="flex flex-col items-center text-center hover:scale-105 transition-transform"
+                whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.98 }}
               >
-                <Mail className="w-6 h-6 text-primary" />
-                <div>
-                  <p className="text-sm text-textLight">{t('contact.info.email')}</p>
-                  <p className="text-lg group-hover:underline">r4199158@gmail.com</p>
-                </div>
+                <Mail className="w-10 h-10 text-primary mb-4" />
+                <p className="text-sm text-textLight mb-2">{t('contact.info.email')}</p>
+                <p className="text-2xl font-semibold text-primary hover:text-accent transition-colors break-all">r4199158@gmail.com</p>
               </motion.a>
-            </motion.div>
+            </div>
+          </motion.div>
 
-            {/* Right Column: Contact Form */}
-            <motion.div variants={itemVariants}>
-              <form onSubmit={handleSubmit} className="space-y-5">
-                {/* Full Name */}
-                <div>
-                  <label
-                    htmlFor="name"
-                    className="block text-sm font-normal text-textDark mb-2"
-                  >
-                    {t('contact.form.name')} *
-                  </label>
-                  <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    placeholder={t('contact.form.placeholders.name')}
-                    className={`w-full px-4 py-3 rounded-lg border ${
-                      errors.name ? 'border-red-400' : 'border-primary/20'
-                    } bg-white focus:outline-none focus:ring-2 focus:ring-primary/40 transition-all`}
-                  />
-                  {errors.name && (
-                    <p className="text-red-400 text-sm mt-1">{errors.name}</p>
-                  )}
-                </div>
+          {/* Divider */}
+          <motion.div variants={itemVariants} className="w-full h-px bg-primary/20 mb-16"></motion.div>
 
-                {/* Phone */}
-                <div>
-                  <label
-                    htmlFor="phone"
-                    className="block text-sm font-normal text-textDark mb-2"
-                  >
-                    {t('contact.form.phone')} *
-                  </label>
-                  <input
-                    type="tel"
-                    id="phone"
-                    name="phone"
-                    value={formData.phone}
-                    onChange={handleChange}
-                    placeholder={t('contact.form.placeholders.phone')}
-                    className={`w-full px-4 py-3 rounded-lg border ${
-                      errors.phone ? 'border-red-400' : 'border-primary/20'
-                    } bg-white focus:outline-none focus:ring-2 focus:ring-primary/40 transition-all`}
-                  />
-                  {errors.phone && (
-                    <p className="text-red-400 text-sm mt-1">{errors.phone}</p>
-                  )}
-                </div>
+          {/* Contact Form */}
+          <motion.div variants={itemVariants} className="w-full max-w-2xl">
+            <h4 className="text-2xl font-heading font-semibold text-primary mb-12 text-center">
+              שלח לי הודעה
+            </h4>
+            <form onSubmit={handleSubmit} className="space-y-6">
+              {/* Full Name */}
+              <div>
+                <label
+                  htmlFor="name"
+                  className="block text-base font-medium text-textLight mb-3"
+                >
+                  {t('contact.form.name')} *
+                </label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  placeholder={t('contact.form.placeholders.name')}
+                  className={`w-full max-w-md mx-auto block px-5 py-3 rounded-lg border ${
+                    errors.name ? 'border-red-400' : 'border-primary/20'
+                  } bg-white focus:outline-none focus:ring-2 focus:ring-primary/40 transition-all text-base`}
+                />
+                {errors.name && (
+                  <p className="text-red-400 text-sm mt-2 text-center">{errors.name}</p>
+                )}
+              </div>
 
-                {/* Email */}
-                <div>
-                  <label
-                    htmlFor="email"
-                    className="block text-sm font-normal text-textDark mb-2"
-                  >
-                    {t('contact.form.email')} *
-                  </label>
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    placeholder={t('contact.form.placeholders.email')}
-                    className={`w-full px-4 py-3 rounded-lg border ${
-                      errors.email ? 'border-red-400' : 'border-primary/20'
-                    } bg-white focus:outline-none focus:ring-2 focus:ring-primary/40 transition-all`}
-                  />
-                  {errors.email && (
-                    <p className="text-red-400 text-sm mt-1">{errors.email}</p>
-                  )}
-                </div>
+              {/* Phone */}
+              <div>
+                <label
+                  htmlFor="phone"
+                  className="block text-base font-medium text-textLight mb-3"
+                >
+                  {t('contact.form.phone')} *
+                </label>
+                <input
+                  type="tel"
+                  id="phone"
+                  name="phone"
+                  value={formData.phone}
+                  onChange={handleChange}
+                  placeholder={t('contact.form.placeholders.phone')}
+                  className={`w-full max-w-md mx-auto block px-5 py-3 rounded-lg border ${
+                    errors.phone ? 'border-red-400' : 'border-primary/20'
+                  } bg-white focus:outline-none focus:ring-2 focus:ring-primary/40 transition-all text-base`}
+                />
+                {errors.phone && (
+                  <p className="text-red-400 text-sm mt-2 text-center">{errors.phone}</p>
+                )}
+              </div>
 
-                {/* Inquiry Type */}
-                <div>
-                  <label
-                    htmlFor="type"
-                    className="block text-sm font-normal text-textDark mb-2"
-                  >
-                    {t('contact.form.type')} *
-                  </label>
-                  <select
-                    id="type"
-                    name="type"
-                    value={formData.type}
-                    onChange={handleChange}
-                    className={`w-full px-4 py-3 rounded-lg border ${
-                      errors.type ? 'border-red-400' : 'border-primary/20'
-                    } bg-white focus:outline-none focus:ring-2 focus:ring-primary/40 transition-all`}
-                  >
-                    <option value="">
-                      {t('contact.form.placeholders.selectType')}
-                    </option>
-                    <option value="general">
-                      {t('contact.form.types.general')}
-                    </option>
-                    <option value="pricing">
-                      {t('contact.form.types.pricing')}
-                    </option>
-                    <option value="booking">
-                      {t('contact.form.types.booking')}
-                    </option>
-                    <option value="other">{t('contact.form.types.other')}</option>
-                  </select>
-                  {errors.type && (
-                    <p className="text-red-400 text-sm mt-1">{errors.type}</p>
-                  )}
-                </div>
+              {/* Email */}
+              <div>
+                <label
+                  htmlFor="email"
+                  className="block text-base font-medium text-textLight mb-3"
+                >
+                  {t('contact.form.email')} *
+                </label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  placeholder={t('contact.form.placeholders.email')}
+                  className={`w-full max-w-md mx-auto block px-5 py-3 rounded-lg border ${
+                    errors.email ? 'border-red-400' : 'border-primary/20'
+                  } bg-white focus:outline-none focus:ring-2 focus:ring-primary/40 transition-all text-base`}
+                />
+                {errors.email && (
+                  <p className="text-red-400 text-sm mt-2 text-center">{errors.email}</p>
+                )}
+              </div>
 
-                {/* Message */}
-                <div>
-                  <label
-                    htmlFor="message"
-                    className="block text-sm font-normal text-textDark mb-2"
-                  >
-                    {t('contact.form.message')} *
-                  </label>
-                  <textarea
-                    id="message"
-                    name="message"
-                    value={formData.message}
-                    onChange={handleChange}
-                    placeholder={t('contact.form.placeholders.message')}
-                    rows="4"
-                    className={`w-full px-4 py-3 rounded-lg border ${
-                      errors.message ? 'border-red-400' : 'border-primary/20'
-                    } bg-white focus:outline-none focus:ring-2 focus:ring-primary/40 transition-all resize-none`}
-                  />
-                  {errors.message && (
-                    <p className="text-red-400 text-sm mt-1">{errors.message}</p>
-                  )}
-                </div>
+              {/* Inquiry Type */}
+              <div>
+                <label
+                  htmlFor="type"
+                  className="block text-base font-medium text-textLight mb-3"
+                >
+                  {t('contact.form.type')} *
+                </label>
+                <select
+                  id="type"
+                  name="type"
+                  value={formData.type}
+                  onChange={handleChange}
+                  className={`w-full max-w-md mx-auto block px-5 py-3 rounded-lg border ${
+                    errors.type ? 'border-red-400' : 'border-primary/20'
+                  } bg-white focus:outline-none focus:ring-2 focus:ring-primary/40 transition-all text-base`}
+                >
+                  <option value="">
+                    {t('contact.form.placeholders.selectType')}
+                  </option>
+                  <option value="general">
+                    {t('contact.form.types.general')}
+                  </option>
+                  <option value="pricing">
+                    {t('contact.form.types.pricing')}
+                  </option>
+                  <option value="booking">
+                    {t('contact.form.types.booking')}
+                  </option>
+                  <option value="other">{t('contact.form.types.other')}</option>
+                </select>
+                {errors.type && (
+                  <p className="text-red-400 text-sm mt-2 text-center">{errors.type}</p>
+                )}
+              </div>
 
-                {/* Submit Button */}
+              {/* Message */}
+              <div>
+                <label
+                  htmlFor="message"
+                  className="block text-base font-medium text-textLight mb-3"
+                >
+                  {t('contact.form.message')} *
+                </label>
+                <textarea
+                  id="message"
+                  name="message"
+                  value={formData.message}
+                  onChange={handleChange}
+                  placeholder={t('contact.form.placeholders.message')}
+                  rows="5"
+                  className={`w-full max-w-md mx-auto block px-5 py-3 rounded-lg border ${
+                    errors.message ? 'border-red-400' : 'border-primary/20'
+                  } bg-white focus:outline-none focus:ring-2 focus:ring-primary/40 transition-all resize-none text-base`}
+                />
+                {errors.message && (
+                  <p className="text-red-400 text-sm mt-2 text-center">{errors.message}</p>
+                )}
+              </div>
+
+              {/* Submit Button */}
+              <div className="flex justify-center pt-4">
                 <motion.button
                   type="submit"
                   disabled={isSubmitting}
                   onMouseEnter={!isSubmitting ? handleButtonHover : undefined}
                   whileHover={{ scale: isSubmitting ? 1 : 1.05 }}
                   whileTap={{ scale: isSubmitting ? 1 : 0.95 }}
-                  className={`w-full py-3 px-6 rounded-lg font-bold text-background ${
+                  className={`py-4 px-12 rounded-lg font-bold text-background text-lg ${
                     isSubmitting
                       ? 'bg-primary/60 cursor-not-allowed'
                       : 'bg-primary hover:bg-accent'
@@ -363,29 +367,29 @@ const Contact = () => {
                     ? t('contact.form.sending')
                     : t('contact.form.submit')}
                 </motion.button>
+              </div>
 
-                {/* Status Messages */}
-                {submitStatus === 'success' && (
-                  <motion.div
-                    initial={{ opacity: 0, y: -10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    className="p-4 bg-green-100 border border-green-400 text-green-700 rounded-lg"
-                  >
-                    {t('contact.form.success')}
-                  </motion.div>
-                )}
-                {submitStatus === 'error' && (
-                  <motion.div
-                    initial={{ opacity: 0, y: -10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    className="p-4 bg-red-100 border border-red-400 text-red-700 rounded-lg"
-                  >
-                    {t('contact.form.error')}
-                  </motion.div>
-                )}
-              </form>
-            </motion.div>
-          </div>
+              {/* Status Messages */}
+              {submitStatus === 'success' && (
+                <motion.div
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="p-4 bg-green-100 border border-green-400 text-green-700 rounded-lg text-center"
+                >
+                  {t('contact.form.success')}
+                </motion.div>
+              )}
+              {submitStatus === 'error' && (
+                <motion.div
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="p-4 bg-red-100 border border-red-400 text-red-700 rounded-lg text-center"
+                >
+                  {t('contact.form.error')}
+                </motion.div>
+              )}
+            </form>
+          </motion.div>
         </motion.div>
       </div>
     </section>
