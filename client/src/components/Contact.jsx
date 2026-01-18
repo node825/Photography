@@ -211,16 +211,16 @@ const Contact = () => {
           <motion.div variants={itemVariants} className="w-full h-px bg-primary/20 mb-16"></motion.div>
 
           {/* Contact Form */}
-          <motion.div variants={itemVariants} className="w-full max-w-2xl">
-            <h4 className="text-2xl font-heading font-semibold text-primary mb-12 text-center">
+          <motion.div variants={itemVariants} className="w-full max-w-3xl px-4">
+            <h4 className="text-4xl font-heading font-bold text-primary mb-16 text-center">
               שלח לי הודעה
             </h4>
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form onSubmit={handleSubmit} className="space-y-8 w-full">
               {/* Full Name */}
-              <div>
+              <div className="w-full max-w-2xl mx-auto">
                 <label
                   htmlFor="name"
-                  className="block text-base font-medium text-textLight mb-3"
+                  className="block text-lg font-semibold text-primary mb-3"
                 >
                   {t('contact.form.name')} *
                 </label>
@@ -231,20 +231,20 @@ const Contact = () => {
                   value={formData.name}
                   onChange={handleChange}
                   placeholder={t('contact.form.placeholders.name')}
-                  className={`w-full max-w-md mx-auto block px-5 py-3 rounded-lg border ${
-                    errors.name ? 'border-red-400' : 'border-primary/20'
-                  } bg-white focus:outline-none focus:ring-2 focus:ring-primary/40 transition-all text-base`}
+                  className={`w-full px-6 py-4 rounded-lg border ${
+                    errors.name ? 'border-red-400' : 'border-primary/30'
+                  } bg-white text-textDark text-lg focus:outline-none focus:ring-2 focus:ring-primary/60 focus:border-transparent transition-all`}
                 />
                 {errors.name && (
-                  <p className="text-red-400 text-sm mt-2 text-center">{errors.name}</p>
+                  <p className="text-red-400 text-base mt-3">{errors.name}</p>
                 )}
               </div>
 
               {/* Phone */}
-              <div>
+              <div className="w-full max-w-2xl mx-auto">
                 <label
                   htmlFor="phone"
-                  className="block text-base font-medium text-textLight mb-3"
+                  className="block text-lg font-semibold text-primary mb-3"
                 >
                   {t('contact.form.phone')} *
                 </label>
@@ -255,20 +255,20 @@ const Contact = () => {
                   value={formData.phone}
                   onChange={handleChange}
                   placeholder={t('contact.form.placeholders.phone')}
-                  className={`w-full max-w-md mx-auto block px-5 py-3 rounded-lg border ${
-                    errors.phone ? 'border-red-400' : 'border-primary/20'
-                  } bg-white focus:outline-none focus:ring-2 focus:ring-primary/40 transition-all text-base`}
+                  className={`w-full px-6 py-4 rounded-lg border ${
+                    errors.phone ? 'border-red-400' : 'border-primary/30'
+                  } bg-white text-textDark text-lg focus:outline-none focus:ring-2 focus:ring-primary/60 focus:border-transparent transition-all`}
                 />
                 {errors.phone && (
-                  <p className="text-red-400 text-sm mt-2 text-center">{errors.phone}</p>
+                  <p className="text-red-400 text-base mt-3">{errors.phone}</p>
                 )}
               </div>
 
               {/* Email */}
-              <div>
+              <div className="w-full max-w-2xl mx-auto">
                 <label
                   htmlFor="email"
-                  className="block text-base font-medium text-textLight mb-3"
+                  className="block text-lg font-semibold text-primary mb-3"
                 >
                   {t('contact.form.email')} *
                 </label>
@@ -279,20 +279,20 @@ const Contact = () => {
                   value={formData.email}
                   onChange={handleChange}
                   placeholder={t('contact.form.placeholders.email')}
-                  className={`w-full max-w-md mx-auto block px-5 py-3 rounded-lg border ${
-                    errors.email ? 'border-red-400' : 'border-primary/20'
-                  } bg-white focus:outline-none focus:ring-2 focus:ring-primary/40 transition-all text-base`}
+                  className={`w-full px-6 py-4 rounded-lg border ${
+                    errors.email ? 'border-red-400' : 'border-primary/30'
+                  } bg-white text-textDark text-lg focus:outline-none focus:ring-2 focus:ring-primary/60 focus:border-transparent transition-all`}
                 />
                 {errors.email && (
-                  <p className="text-red-400 text-sm mt-2 text-center">{errors.email}</p>
+                  <p className="text-red-400 text-base mt-3">{errors.email}</p>
                 )}
               </div>
 
               {/* Inquiry Type */}
-              <div>
+              <div className="w-full max-w-2xl mx-auto">
                 <label
                   htmlFor="type"
-                  className="block text-base font-medium text-textLight mb-3"
+                  className="block text-lg font-semibold text-primary mb-3"
                 >
                   {t('contact.form.type')} *
                 </label>
@@ -301,9 +301,9 @@ const Contact = () => {
                   name="type"
                   value={formData.type}
                   onChange={handleChange}
-                  className={`w-full max-w-md mx-auto block px-5 py-3 rounded-lg border ${
-                    errors.type ? 'border-red-400' : 'border-primary/20'
-                  } bg-white focus:outline-none focus:ring-2 focus:ring-primary/40 transition-all text-base`}
+                  className={`w-full px-6 py-4 rounded-lg border ${
+                    errors.type ? 'border-red-400' : 'border-primary/30'
+                  } bg-white text-textDark text-lg focus:outline-none focus:ring-2 focus:ring-primary/60 focus:border-transparent transition-all`}
                 >
                   <option value="">
                     {t('contact.form.placeholders.selectType')}
@@ -320,15 +320,15 @@ const Contact = () => {
                   <option value="other">{t('contact.form.types.other')}</option>
                 </select>
                 {errors.type && (
-                  <p className="text-red-400 text-sm mt-2 text-center">{errors.type}</p>
+                  <p className="text-red-400 text-base mt-3">{errors.type}</p>
                 )}
               </div>
 
               {/* Message */}
-              <div>
+              <div className="w-full max-w-2xl mx-auto">
                 <label
                   htmlFor="message"
-                  className="block text-base font-medium text-textLight mb-3"
+                  className="block text-lg font-semibold text-primary mb-3"
                 >
                   {t('contact.form.message')} *
                 </label>
@@ -338,31 +338,31 @@ const Contact = () => {
                   value={formData.message}
                   onChange={handleChange}
                   placeholder={t('contact.form.placeholders.message')}
-                  rows="5"
-                  className={`w-full max-w-md mx-auto block px-5 py-3 rounded-lg border ${
-                    errors.message ? 'border-red-400' : 'border-primary/20'
-                  } bg-white focus:outline-none focus:ring-2 focus:ring-primary/40 transition-all resize-none text-base`}
+                  rows="6"
+                  className={`w-full px-6 py-4 rounded-lg border ${
+                    errors.message ? 'border-red-400' : 'border-primary/30'
+                  } bg-white text-textDark text-lg focus:outline-none focus:ring-2 focus:ring-primary/60 focus:border-transparent transition-all resize-none`}
                 />
                 {errors.message && (
-                  <p className="text-red-400 text-sm mt-2 text-center">{errors.message}</p>
+                  <p className="text-red-400 text-base mt-3">{errors.message}</p>
                 )}
               </div>
 
               {/* Submit Button */}
-              <div className="flex justify-center pt-4">
+              <div className="flex justify-center pt-8 w-full max-w-2xl mx-auto">
                 <motion.button
                   type="submit"
                   disabled={isSubmitting}
                   onMouseEnter={!isSubmitting ? handleButtonHover : undefined}
                   whileHover={{ scale: isSubmitting ? 1 : 1.05 }}
                   whileTap={{ scale: isSubmitting ? 1 : 0.95 }}
-                  className={`py-4 px-12 rounded-lg font-bold text-background text-lg ${
+                  className={`py-5 px-16 rounded-xl font-bold text-background text-xl ${
                     isSubmitting
                       ? 'bg-primary/60 cursor-not-allowed'
                       : 'bg-primary hover:bg-accent'
-                  } transition-colors flex items-center justify-center gap-2 btn-shimmer metallic-blur !text-black`}
+                  } transition-colors flex items-center justify-center gap-3 btn-shimmer metallic-blur !text-black shadow-lg hover:shadow-xl`}
                 >
-                  {isSubmitting && <Loader2 className="w-5 h-5 animate-spin" />}
+                  {isSubmitting && <Loader2 className="w-6 h-6 animate-spin" />}
                   {isSubmitting
                     ? t('contact.form.sending')
                     : t('contact.form.submit')}
