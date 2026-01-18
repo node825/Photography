@@ -172,7 +172,7 @@ const Contact = () => {
               שלח לי הודעה
             </h4>
 
-            <form onSubmit={handleSubmit} className="space-y-6 mx-auto w-96">
+            <form onSubmit={handleSubmit} className="space-y-6 mx-auto" style={{ width: '400px' }}>
               {/* Name */}
               <div>
                 <label className="block text-lg font-semibold text-primary mb-2">
