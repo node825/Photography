@@ -215,13 +215,10 @@ const Contact = () => {
             <h4 className="text-4xl font-heading font-bold text-primary mb-16 text-center">
               שלח לי הודעה
             </h4>
-            <form onSubmit={handleSubmit} className="space-y-8 w-full">
+            <form onSubmit={handleSubmit} className="space-y-8 w-full max-w-2xl mx-auto">
               {/* Full Name */}
-              <div className="w-full max-w-2xl mx-auto">
-                <label
-                  htmlFor="name"
-                  className="block text-lg font-semibold text-primary mb-3"
-                >
+              <div>
+                <label htmlFor="name" className="block text-lg font-semibold text-primary mb-3">
                   {t('contact.form.name')} *
                 </label>
                 <input
@@ -235,17 +232,12 @@ const Contact = () => {
                     errors.name ? 'border-red-400' : 'border-primary/30'
                   } bg-white text-textDark text-lg focus:outline-none focus:ring-2 focus:ring-primary/60 focus:border-transparent transition-all`}
                 />
-                {errors.name && (
-                  <p className="text-red-400 text-base mt-3">{errors.name}</p>
-                )}
+                {errors.name && <p className="text-red-400 text-base mt-2">{errors.name}</p>}
               </div>
 
               {/* Phone */}
-              <div className="w-full max-w-2xl mx-auto">
-                <label
-                  htmlFor="phone"
-                  className="block text-lg font-semibold text-primary mb-3"
-                >
+              <div>
+                <label htmlFor="phone" className="block text-lg font-semibold text-primary mb-3">
                   {t('contact.form.phone')} *
                 </label>
                 <input
@@ -259,17 +251,12 @@ const Contact = () => {
                     errors.phone ? 'border-red-400' : 'border-primary/30'
                   } bg-white text-textDark text-lg focus:outline-none focus:ring-2 focus:ring-primary/60 focus:border-transparent transition-all`}
                 />
-                {errors.phone && (
-                  <p className="text-red-400 text-base mt-3">{errors.phone}</p>
-                )}
+                {errors.phone && <p className="text-red-400 text-base mt-2">{errors.phone}</p>}
               </div>
 
               {/* Email */}
-              <div className="w-full max-w-2xl mx-auto">
-                <label
-                  htmlFor="email"
-                  className="block text-lg font-semibold text-primary mb-3"
-                >
+              <div>
+                <label htmlFor="email" className="block text-lg font-semibold text-primary mb-3">
                   {t('contact.form.email')} *
                 </label>
                 <input
@@ -283,17 +270,12 @@ const Contact = () => {
                     errors.email ? 'border-red-400' : 'border-primary/30'
                   } bg-white text-textDark text-lg focus:outline-none focus:ring-2 focus:ring-primary/60 focus:border-transparent transition-all`}
                 />
-                {errors.email && (
-                  <p className="text-red-400 text-base mt-3">{errors.email}</p>
-                )}
+                {errors.email && <p className="text-red-400 text-base mt-2">{errors.email}</p>}
               </div>
 
               {/* Inquiry Type */}
-              <div className="w-full max-w-2xl mx-auto">
-                <label
-                  htmlFor="type"
-                  className="block text-lg font-semibold text-primary mb-3"
-                >
+              <div>
+                <label htmlFor="type" className="block text-lg font-semibold text-primary mb-3">
                   {t('contact.form.type')} *
                 </label>
                 <select
@@ -305,31 +287,18 @@ const Contact = () => {
                     errors.type ? 'border-red-400' : 'border-primary/30'
                   } bg-white text-textDark text-lg focus:outline-none focus:ring-2 focus:ring-primary/60 focus:border-transparent transition-all`}
                 >
-                  <option value="">
-                    {t('contact.form.placeholders.selectType')}
-                  </option>
-                  <option value="general">
-                    {t('contact.form.types.general')}
-                  </option>
-                  <option value="pricing">
-                    {t('contact.form.types.pricing')}
-                  </option>
-                  <option value="booking">
-                    {t('contact.form.types.booking')}
-                  </option>
+                  <option value="">{t('contact.form.placeholders.selectType')}</option>
+                  <option value="general">{t('contact.form.types.general')}</option>
+                  <option value="pricing">{t('contact.form.types.pricing')}</option>
+                  <option value="booking">{t('contact.form.types.booking')}</option>
                   <option value="other">{t('contact.form.types.other')}</option>
                 </select>
-                {errors.type && (
-                  <p className="text-red-400 text-base mt-3">{errors.type}</p>
-                )}
+                {errors.type && <p className="text-red-400 text-base mt-2">{errors.type}</p>}
               </div>
 
               {/* Message */}
-              <div className="w-full max-w-2xl mx-auto">
-                <label
-                  htmlFor="message"
-                  className="block text-lg font-semibold text-primary mb-3"
-                >
+              <div>
+                <label htmlFor="message" className="block text-lg font-semibold text-primary mb-3">
                   {t('contact.form.message')} *
                 </label>
                 <textarea
@@ -343,13 +312,11 @@ const Contact = () => {
                     errors.message ? 'border-red-400' : 'border-primary/30'
                   } bg-white text-textDark text-lg focus:outline-none focus:ring-2 focus:ring-primary/60 focus:border-transparent transition-all resize-none`}
                 />
-                {errors.message && (
-                  <p className="text-red-400 text-base mt-3">{errors.message}</p>
-                )}
+                {errors.message && <p className="text-red-400 text-base mt-2">{errors.message}</p>}
               </div>
 
               {/* Submit Button */}
-              <div className="flex justify-center pt-8 w-full max-w-2xl mx-auto">
+              <div className="flex justify-center pt-4">
                 <motion.button
                   type="submit"
                   disabled={isSubmitting}
@@ -357,15 +324,11 @@ const Contact = () => {
                   whileHover={{ scale: isSubmitting ? 1 : 1.05 }}
                   whileTap={{ scale: isSubmitting ? 1 : 0.95 }}
                   className={`py-5 px-16 rounded-xl font-bold text-background text-xl ${
-                    isSubmitting
-                      ? 'bg-primary/60 cursor-not-allowed'
-                      : 'bg-primary hover:bg-accent'
+                    isSubmitting ? 'bg-primary/60 cursor-not-allowed' : 'bg-primary hover:bg-accent'
                   } transition-colors flex items-center justify-center gap-3 btn-shimmer metallic-blur !text-black shadow-lg hover:shadow-xl`}
                 >
                   {isSubmitting && <Loader2 className="w-6 h-6 animate-spin" />}
-                  {isSubmitting
-                    ? t('contact.form.sending')
-                    : t('contact.form.submit')}
+                  {isSubmitting ? t('contact.form.sending') : t('contact.form.submit')}
                 </motion.button>
               </div>
 
