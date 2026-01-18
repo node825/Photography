@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import { Phone, Mail, Loader2 } from 'lucide-react';
 import emailjs from '@emailjs/browser';
+import GoldenGlitter from './GoldenGlitter';
 
 const EMAILJS_CONFIG = {
   SERVICE_ID: import.meta.env.VITE_EMAILJS_SERVICE_ID,
@@ -24,6 +25,17 @@ const Contact = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState(null); // 'success' | 'error' | null
   const [errors, setErrors] = useState({});
+  const [glitterCoords, setGlitterCoords] = useState({ x: 0, y: 0 });
+  const [showGlitter, setShowGlitter] = useState(false);
+
+  const handleButtonHover = (e) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    setGlitterCoords({
+      x: rect.left + rect.width / 2,
+      y: rect.top + rect.height / 2,
+    });
+    setShowGlitter(true);
+  };
 
   // Email validation regex
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -137,7 +149,8 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-16 px-4 bg-lightPink/30">
+    <section id="contact" className="py-16 px-4 bg-mediumGray/30 relative">
+      {showGlitter && <GoldenGlitter x={glitterCoords.x} y={glitterCoords.y} count={10} />}
       <div className="container mx-auto max-w-6xl">
         <motion.div
           variants={containerVariants}
@@ -171,11 +184,11 @@ const Contact = () => {
               {/* Phone */}
               <motion.a
                 href="tel:050-123-4567"
-                className="flex items-center gap-4 text-textDark hover:text-accent transition-colors group"
+                className="flex items-center gap-4 text-textDark hover:text-primary transition-colors group"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
               >
-                <Phone className="w-6 h-6 text-accent" />
+                <Phone className="w-6 h-6 text-primary" />
                 <div>
                   <p className="text-sm text-textLight">{t('contact.info.phone')}</p>
                   <p className="text-lg group-hover:underline">050-123-4567</p>
@@ -185,11 +198,11 @@ const Contact = () => {
               {/* Email */}
               <motion.a
                 href="mailto:info@kidsphotos.com"
-                className="flex items-center gap-4 text-textDark hover:text-accent transition-colors group"
+                className="flex items-center gap-4 text-textDark hover:text-primary transition-colors group"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
               >
-                <Mail className="w-6 h-6 text-accent" />
+                <Mail className="w-6 h-6 text-primary" />
                 <div>
                   <p className="text-sm text-textLight">{t('contact.info.email')}</p>
                   <p className="text-lg group-hover:underline">info@kidsphotos.com</p>
@@ -216,8 +229,8 @@ const Contact = () => {
                     onChange={handleChange}
                     placeholder={t('contact.form.placeholders.name')}
                     className={`w-full px-4 py-3 rounded-lg border ${
-                      errors.name ? 'border-red-400' : 'border-accent/20'
-                    } bg-white focus:outline-none focus:ring-2 focus:ring-accent/40 transition-all`}
+                      errors.name ? 'border-red-400' : 'border-primary/20'
+                    } bg-white focus:outline-none focus:ring-2 focus:ring-primary/40 transition-all`}
                   />
                   {errors.name && (
                     <p className="text-red-400 text-sm mt-1">{errors.name}</p>
@@ -240,8 +253,8 @@ const Contact = () => {
                     onChange={handleChange}
                     placeholder={t('contact.form.placeholders.phone')}
                     className={`w-full px-4 py-3 rounded-lg border ${
-                      errors.phone ? 'border-red-400' : 'border-accent/20'
-                    } bg-white focus:outline-none focus:ring-2 focus:ring-accent/40 transition-all`}
+                      errors.phone ? 'border-red-400' : 'border-primary/20'
+                    } bg-white focus:outline-none focus:ring-2 focus:ring-primary/40 transition-all`}
                   />
                   {errors.phone && (
                     <p className="text-red-400 text-sm mt-1">{errors.phone}</p>
@@ -264,8 +277,8 @@ const Contact = () => {
                     onChange={handleChange}
                     placeholder={t('contact.form.placeholders.email')}
                     className={`w-full px-4 py-3 rounded-lg border ${
-                      errors.email ? 'border-red-400' : 'border-accent/20'
-                    } bg-white focus:outline-none focus:ring-2 focus:ring-accent/40 transition-all`}
+                      errors.email ? 'border-red-400' : 'border-primary/20'
+                    } bg-white focus:outline-none focus:ring-2 focus:ring-primary/40 transition-all`}
                   />
                   {errors.email && (
                     <p className="text-red-400 text-sm mt-1">{errors.email}</p>
@@ -286,8 +299,8 @@ const Contact = () => {
                     value={formData.type}
                     onChange={handleChange}
                     className={`w-full px-4 py-3 rounded-lg border ${
-                      errors.type ? 'border-red-400' : 'border-accent/20'
-                    } bg-white focus:outline-none focus:ring-2 focus:ring-accent/40 transition-all`}
+                      errors.type ? 'border-red-400' : 'border-primary/20'
+                    } bg-white focus:outline-none focus:ring-2 focus:ring-primary/40 transition-all`}
                   >
                     <option value="">
                       {t('contact.form.placeholders.selectType')}
@@ -324,8 +337,8 @@ const Contact = () => {
                     placeholder={t('contact.form.placeholders.message')}
                     rows="4"
                     className={`w-full px-4 py-3 rounded-lg border ${
-                      errors.message ? 'border-red-400' : 'border-accent/20'
-                    } bg-white focus:outline-none focus:ring-2 focus:ring-accent/40 transition-all resize-none`}
+                      errors.message ? 'border-red-400' : 'border-primary/20'
+                    } bg-white focus:outline-none focus:ring-2 focus:ring-primary/40 transition-all resize-none`}
                   />
                   {errors.message && (
                     <p className="text-red-400 text-sm mt-1">{errors.message}</p>
@@ -336,13 +349,14 @@ const Contact = () => {
                 <motion.button
                   type="submit"
                   disabled={isSubmitting}
+                  onMouseEnter={!isSubmitting ? handleButtonHover : undefined}
                   whileHover={{ scale: isSubmitting ? 1 : 1.05 }}
                   whileTap={{ scale: isSubmitting ? 1 : 0.95 }}
-                  className={`w-full py-3 px-6 rounded-lg font-medium text-white ${
+                  className={`w-full py-3 px-6 rounded-lg font-bold text-background ${
                     isSubmitting
-                      ? 'bg-accent/60 cursor-not-allowed'
-                      : 'bg-accent hover:bg-accentDark'
-                  } transition-colors flex items-center justify-center gap-2`}
+                      ? 'bg-primary/60 cursor-not-allowed'
+                      : 'bg-primary hover:bg-accent'
+                  } transition-colors flex items-center justify-center gap-2 btn-shimmer metallic-blur !text-black`}
                 >
                   {isSubmitting && <Loader2 className="w-5 h-5 animate-spin" />}
                   {isSubmitting

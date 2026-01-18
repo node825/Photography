@@ -20,10 +20,10 @@ const FloatingSquares = () => {
             width: square.size,
             height: square.size,
             left: square.left,
-            background: 'linear-gradient(135deg, rgba(232, 165, 152, 0.12) 0%, rgba(245, 213, 208, 0.08) 100%)',
+            background: 'linear-gradient(135deg, rgba(212, 175, 55, 0.15) 0%, rgba(184, 149, 106, 0.1) 100%)',
             backdropFilter: 'blur(6px)',
-            border: '1.5px solid rgba(212, 131, 126, 0.15)',
-            boxShadow: '0 6px 24px rgba(232, 165, 152, 0.1)',
+            border: '1.5px solid rgba(212, 175, 55, 0.25)',
+            boxShadow: '0 6px 24px rgba(212, 175, 55, 0.15)',
           }}
           initial={{
             y: '100vh',
@@ -57,9 +57,9 @@ const FloatingSquares = () => {
             width: 70 + Math.random() * 35,
             height: 70 + Math.random() * 35,
             left: `${Math.random() * 90}%`,
-            background: `linear-gradient(135deg, rgba(232, 165, 152, 0.15) 0%, rgba(250, 232, 229, 0.1) 100%)`,
-            border: '1.5px solid rgba(212, 131, 126, 0.2)',
-            boxShadow: '0 4px 16px rgba(232, 165, 152, 0.12)',
+            background: `linear-gradient(135deg, rgba(212, 175, 55, 0.18) 0%, rgba(184, 149, 106, 0.12) 100%)`,
+            border: '1.5px solid rgba(212, 175, 55, 0.3)',
+            boxShadow: '0 4px 16px rgba(212, 175, 55, 0.15)',
           }}
           initial={{
             y: '100vh',

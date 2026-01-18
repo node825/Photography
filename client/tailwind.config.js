@@ -7,18 +7,18 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: '#E8A598',        // Soft coral (for headings, main accents)
-        secondary: '#F5D5D0',      // Light blush pink (for subtle backgrounds)
-        accent: '#D4837E',         // Deeper coral/rose (for buttons, CTAs)
-        accentDark: '#C06B66',     // Darker rose (for hover states)
-        background: '#FFFBF7',     // Warm cream/off-white (main background)
-        lightPink: '#FAE8E5',      // Very light pink (for sections)
-        mediumPink: '#E8A598',     // Medium coral-pink
-        lightGray: '#FAF5F2',      // Very light warm gray
-        mediumGray: '#C9B5B0',     // Warm medium gray
-        darkGray: '#8B7570',       // Warm dark gray
-        textDark: '#6B4E4A',       // Warm dark gray-brown (main text)
-        textLight: '#9B8682',      // Warm medium gray (secondary text)
+        primary: '#D4AF37',        // Bright gold (for headings, main accents)
+        secondary: '#B8956A',      // Warm gold (for subtle backgrounds)
+        accent: '#DAA520',         // Golden rod (for buttons, CTAs)
+        accentDark: '#AA8C2C',     // Darker gold (for hover states)
+        background: '#0F0F0F',     // Deep black (main background)
+        lightPink: '#1A1A1A',      // Very dark gray (for sections)
+        mediumPink: '#2A2A2A',     // Medium dark gray
+        lightGray: '#3A3A3A',      // Light dark gray
+        mediumGray: '#555555',     // Warm medium gray
+        darkGray: '#1A1A1A',       // Deep dark gray
+        textDark: '#F5F5F5',       // Off-white (main text)
+        textLight: '#B0B0B0',      // Light gray (secondary text)
       },
       fontFamily: {
         sans: ['Inter', 'Heebo', 'sans-serif'],

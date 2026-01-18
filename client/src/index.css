@@ -12,15 +12,58 @@ body {
   font-family: 'Inter', 'Heebo', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #FFFBF7;
-  color: #6B4E4A;
+  background-color: #0F0F0F;
+  color: #F5F5F5;
   font-weight: 400;
+  background: linear-gradient(135deg, #0F0F0F 0%, #1a1a1a 100%);
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Montserrat', 'Rubik', 'sans-serif';
-  color: #E8A598;
-  font-weight: 600;
+  color: #D4AF37;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-shadow:
+    0 2px 4px rgba(212, 175, 55, 0.1),
+    0 0 20px rgba(212, 175, 55, 0.08);
+}
+
+h1 {
+  font-size: 4rem;
+  letter-spacing: 0.08em;
+  line-height: 1.2;
+  font-weight: 800;
+  text-shadow:
+    0 4px 12px rgba(212, 175, 55, 0.2),
+    0 0 30px rgba(212, 175, 55, 0.1);
+}
+
+h2 {
+  font-size: 3rem;
+  letter-spacing: 0.06em;
+  line-height: 1.35;
+  font-weight: 700;
+  text-shadow:
+    0 3px 10px rgba(212, 175, 55, 0.15),
+    0 0 25px rgba(212, 175, 55, 0.08);
+  margin-bottom: 1rem;
+}
+
+h3 {
+  font-size: 1.875rem;
+  letter-spacing: 0.05em;
+  line-height: 1.4;
+  font-weight: 700;
+}
+
+h4, h5, h6 {
+  letter-spacing: 0.04em;
+  line-height: 1.5;
+}
+
+p, span, a {
+  letter-spacing: 0.02em;
+  line-height: 1.65;
 }
 
 /* RTL support for Hebrew */
@@ -37,4 +80,187 @@ h1, h2, h3, h4, h5, h6 {
 /* Smooth scrolling */
 html {
   scroll-behavior: smooth;
+}
+
+/* Metallic shimmer effect */
+@keyframes metallic-shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+/* Golden glow effect */
+@keyframes golden-glow {
+  0%, 100% {
+    text-shadow: 0 0 10px rgba(212, 175, 55, 0.5), 0 0 20px rgba(212, 175, 55, 0.3);
+  }
+  50% {
+    text-shadow: 0 0 20px rgba(212, 175, 55, 0.8), 0 0 30px rgba(212, 175, 55, 0.5);
+  }
+}
+
+/* Text gradient effect */
+@keyframes text-shimmer {
+  0% {
+    background-position: 0% center;
+  }
+  50% {
+    background-position: 100% center;
+  }
+  100% {
+    background-position: 0% center;
+  }
+}
+
+/* Premium heading glow */
+@keyframes premium-glow {
+  0%, 100% {
+    text-shadow:
+      0 0 10px rgba(212, 175, 55, 0.3),
+      0 0 20px rgba(212, 175, 55, 0.1);
+  }
+  50% {
+    text-shadow:
+      0 0 20px rgba(212, 175, 55, 0.6),
+      0 0 30px rgba(212, 175, 55, 0.3),
+      0 0 40px rgba(212, 175, 55, 0.1);
+  }
+}
+
+/* Luxury text effects */
+.text-glow {
+  animation: premium-glow 3s ease-in-out infinite;
+}
+
+.text-premium {
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #D4AF37;
+  text-shadow:
+    0 0 10px rgba(212, 175, 55, 0.3),
+    0 0 20px rgba(212, 175, 55, 0.15);
+}
+
+.text-secondary-light {
+  color: #B0B0B0;
+  font-weight: 400;
+  letter-spacing: 0.03em;
+}
+
+.text-subtitle {
+  font-size: 1.5rem;
+  font-weight: 300;
+  letter-spacing: 0.04em;
+  line-height: 1.7;
+  color: #B0B0B0;
+}
+
+/* Premium button styles */
+a {
+  text-decoration: none;
+}
+
+button, a[href] {
+  outline: none;
+}
+
+/* Letter spacing utility */
+.letter-spacing {
+  letter-spacing: 0.05em;
+}
+
+/* Enhanced button styling */
+button:focus-visible, a:focus-visible {
+  outline: 2px solid rgba(212, 175, 55, 0.5);
+  outline-offset: 2px;
+}
+
+/* Elegant button shimmer */
+.btn-shimmer {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-shimmer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.3),
+    transparent
+  );
+  transition: left 0.5s;
+}
+
+.btn-shimmer:hover::before {
+  left: 100%;
+}
+
+/* Button text colors */
+.bg-primary {
+  color: #0F0F0F !important;
+}
+
+.bg-mediumGray {
+  color: #D4AF37 !important;
+}
+
+button, a[href] {
+  color: inherit !important;
+}
+
+/* Metallic blur effect on hover */
+.metallic-blur {
+  transition: all 0.3s ease;
+}
+
+.metallic-blur:hover {
+  background: linear-gradient(
+    135deg,
+    rgba(212, 175, 55, 0.3) 0%,
+    rgba(184, 149, 106, 0.2) 50%,
+    rgba(212, 175, 55, 0.3) 100%
+  );
+  filter: blur(0.5px);
+  box-shadow: 0 0 20px rgba(212, 175, 55, 0.4), inset 0 0 20px rgba(212, 175, 55, 0.15);
+}
+
+/* Global metallic hover effect */
+html {
+  --mouse-x: 0;
+  --mouse-y: 0;
+  --glow-opacity: 0;
+}
+
+/* Metallic glow effect on page */
+html::before {
+  content: '';
+  position: fixed;
+  top: var(--mouse-y);
+  left: var(--mouse-x);
+  width: 400px;
+  height: 400px;
+  pointer-events: none;
+  background: radial-gradient(
+    circle,
+    rgba(212, 175, 55, 0.2) 0%,
+    rgba(212, 175, 55, 0.08) 40%,
+    rgba(184, 149, 106, 0.05) 70%,
+    transparent 100%
+  );
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  opacity: var(--glow-opacity);
+  transition: opacity 0.2s ease-out;
+  backdrop-filter: blur(40px);
+  mix-blend-mode: screen;
 }
