@@ -1,9 +1,13 @@
 import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
+import { useState } from 'react';
 import logo from '../assets/Black And White Camera Store Logo - black.png';
+import GoldenGlitter from './GoldenGlitter';
 
 const Navbar = () => {
   const { t, i18n } = useTranslation();
+  const [glitterCoords, setGlitterCoords] = useState({ x: 0, y: 0 });
+  const [showGlitter, setShowGlitter] = useState(false);
 
   const toggleLanguage = () => {
     const newLang = i18n.language === 'en' ? 'he' : 'en';
@@ -11,8 +15,18 @@ const Navbar = () => {
     document.documentElement.dir = newLang === 'he' ? 'rtl' : 'ltr';
   };
 
+  const handleLogoHover = (e) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    setGlitterCoords({
+      x: rect.left + rect.width / 2,
+      y: rect.top + rect.height / 2,
+    });
+    setShowGlitter(true);
+  };
+
   return (
-    <nav className="bg-background/95 text-textDark py-4 px-6 sticky top-0 z-50 shadow-lg backdrop-blur-md border-b border-primary/30">
+    <nav className="bg-background/95 text-textDark py-2 px-6 sticky top-0 z-50 shadow-lg backdrop-blur-md border-b border-primary/30 h-20">
+      {showGlitter && <GoldenGlitter x={glitterCoords.x} y={glitterCoords.y} count={8} />}
       <div className="container mx-auto flex justify-between items-center">
         {/* Left - Navigation Links */}
         <div className="flex items-center gap-8">
@@ -40,15 +54,19 @@ const Navbar = () => {
 
         {/* Right - Logo */}
         <motion.div
-          className="flex items-center"
+          className="flex items-center cursor-pointer"
           animate={{ rotate: 360 }}
           transition={{ duration: 20, repeat: Infinity, ease: 'linear' }}
-          whileHover={{ scale: 1.1, rotate: 360 }}
+          whileHover={{ scale: 1.15 }}
+          onMouseEnter={handleLogoHover}
         >
           <img
             src={logo}
             alt="Kids Photography Logo"
-            className="h-12 w-12 drop-shadow-lg hover:drop-shadow-xl transition-all duration-300"
+            className="h-16 w-16 invert drop-shadow-md hover:drop-shadow-lg transition-all duration-300 filter brightness-110"
+            style={{
+              filter: 'invert(1) drop-shadow(0 0 8px rgba(212, 175, 55, 0.6))',
+            }}
           />
         </motion.div>
       </div>
