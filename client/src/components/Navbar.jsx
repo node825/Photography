@@ -25,11 +25,11 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="bg-background/95 text-textDark py-1 px-6 sticky top-0 z-50 shadow-lg backdrop-blur-md border-b border-primary/30 h-14">
+    <nav className="bg-background/95 text-textDark py-0 px-6 sticky top-0 z-50 shadow-lg backdrop-blur-md border-b border-primary/30 h-10">
       {showGlitter && <GoldenGlitter x={glitterCoords.x} y={glitterCoords.y} count={8} />}
-      <div className="container mx-auto flex justify-between items-center h-full">
+      <div className="container mx-auto flex justify-between items-center h-full gap-4">
         {/* Left - Navigation Links */}
-        <div className="flex items-center gap-8">
+        <div className="flex items-center gap-6 text-sm">
           <a href="#home" className="text-textDark hover:text-primary transition-colors duration-300 font-medium">
             {t('nav.home')}
           </a>
@@ -47,7 +47,7 @@ const Navbar = () => {
         {/* Center - Language Toggle */}
         <button
           onClick={toggleLanguage}
-          className="bg-primary text-background px-5 py-2 rounded-lg hover:bg-accent transition-all duration-300 font-medium shadow-lg hover:shadow-xl transform hover:scale-105"
+          className="bg-primary text-background px-3 py-1 rounded-md hover:bg-accent transition-all duration-300 font-medium shadow-lg hover:shadow-xl transform hover:scale-105 text-xs"
         >
           {i18n.language === 'en' ? 'עב' : 'EN'}
         </button>
@@ -61,7 +61,7 @@ const Navbar = () => {
           <img
             src={logo}
             alt="Kids Photography Logo"
-            className="h-12 w-12 invert transition-all duration-300"
+            className="h-8 w-8 invert transition-all duration-300"
             style={{
               filter: 'invert(1) drop-shadow(0 0 8px rgba(212, 175, 55, 0.6))',
             }}
