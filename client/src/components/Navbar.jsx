@@ -25,9 +25,9 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="bg-background/95 text-textDark py-2 px-6 sticky top-0 z-50 shadow-lg backdrop-blur-md border-b border-primary/30 h-20">
+    <nav className="bg-background/95 text-textDark py-1 px-6 sticky top-0 z-50 shadow-lg backdrop-blur-md border-b border-primary/30 h-14">
       {showGlitter && <GoldenGlitter x={glitterCoords.x} y={glitterCoords.y} count={8} />}
-      <div className="container mx-auto flex justify-between items-center">
+      <div className="container mx-auto flex justify-between items-center h-full">
         {/* Left - Navigation Links */}
         <div className="flex items-center gap-8">
           <a href="#home" className="text-textDark hover:text-primary transition-colors duration-300 font-medium">
@@ -52,18 +52,16 @@ const Navbar = () => {
           {i18n.language === 'en' ? 'עב' : 'EN'}
         </button>
 
-        {/* Right - Logo */}
+        {/* Right - Logo (Fixed position on right/left based on RTL) */}
         <motion.div
-          className="flex items-center cursor-pointer"
-          animate={{ rotate: 360 }}
-          transition={{ duration: 20, repeat: Infinity, ease: 'linear' }}
-          whileHover={{ scale: 1.15 }}
+          className="flex items-center cursor-pointer flex-shrink-0"
+          whileHover={{ scale: 1.1 }}
           onMouseEnter={handleLogoHover}
         >
           <img
             src={logo}
             alt="Kids Photography Logo"
-            className="h-16 w-16 invert drop-shadow-md hover:drop-shadow-lg transition-all duration-300 filter brightness-110"
+            className="h-12 w-12 invert transition-all duration-300"
             style={{
               filter: 'invert(1) drop-shadow(0 0 8px rgba(212, 175, 55, 0.6))',
             }}
