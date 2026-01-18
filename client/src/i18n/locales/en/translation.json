@@ -1,0 +1,84 @@
+{
+  "nav": {
+    "home": "Home",
+    "gallery": "Gallery",
+    "booking": "Book Session",
+    "contact": "Contact"
+  },
+  "hero": {
+    "title": "Capturing Precious Moments",
+    "subtitle": "Professional Kids & Family Photography",
+    "viewGallery": "View Gallery",
+    "bookSession": "Book a Session"
+  },
+  "gallery": {
+    "title": "Our Gallery",
+    "all": "All",
+    "newborn": "Newborn",
+    "toddler": "Toddler",
+    "kids": "Kids",
+    "family": "Family"
+  },
+  "booking": {
+    "title": "Book Your Session",
+    "form": {
+      "name": "Full Name",
+      "phone": "Phone Number",
+      "email": "Email Address",
+      "sessionType": "Session Type",
+      "selectType": "Select session type",
+      "date": "Preferred Date",
+      "notes": "Additional Notes",
+      "submit": "Book Now",
+      "success": "Booking submitted successfully! We'll contact you soon.",
+      "error": "Something went wrong. Please try again."
+    },
+    "sessionTypes": {
+      "newborn": "Newborn (0-1 years)",
+      "toddler": "Toddler (1-3 years)",
+      "kids": "Kids (3-10 years)",
+      "family": "Family"
+    }
+  },
+  "contact": {
+    "title": "Contact Us",
+    "subtitle": "We'd love to hear from you",
+    "photographerName": "Sarah Cohen",
+    "info": {
+      "phone": "Phone",
+      "email": "Email"
+    },
+    "form": {
+      "name": "Full Name",
+      "phone": "Phone",
+      "email": "Email",
+      "type": "Inquiry Type",
+      "message": "Message",
+      "submit": "Send Message",
+      "types": {
+        "general": "General Question",
+        "pricing": "Pricing Inquiry",
+        "booking": "Book a Session",
+        "other": "Other"
+      },
+      "placeholders": {
+        "name": "Enter your full name",
+        "phone": "Enter your phone number",
+        "email": "Enter your email address",
+        "message": "Tell us what you'd like to know...",
+        "selectType": "Select inquiry type"
+      },
+      "validation": {
+        "required": "This field is required",
+        "invalidEmail": "Please enter a valid email address"
+      },
+      "success": "Message sent successfully! We'll get back to you soon.",
+      "error": "Failed to send message. Please try again or contact us directly.",
+      "sending": "Sending..."
+    }
+  },
+  "footer": {
+    "rights": "All rights reserved",
+    "followUs": "Follow Us"
+  }
+}
