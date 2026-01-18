@@ -30,6 +30,69 @@ const Hero = () => {
         <div className="absolute w-96 h-96 bg-secondary/5 rounded-full blur-3xl -bottom-48 -right-48"></div>
       </div>
 
+      {/* Scattered decorative images */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        {/* Top Left */}
+        <motion.img
+          src="/src/assets/gallery/גיל שנה/גיל שנה (1).jpg"
+          alt="scattered"
+          initial={{ opacity: 0, rotate: -15, y: 50 }}
+          animate={{ opacity: 0.15, rotate: -15, y: 0 }}
+          transition={{ duration: 1.2, delay: 0.3 }}
+          className="absolute w-32 h-32 object-cover rounded-lg -top-10 -left-16 shadow-2xl"
+        />
+
+        {/* Top Right */}
+        <motion.img
+          src="/src/assets/gallery/סטודיו/סטודיו (3).jpg"
+          alt="scattered"
+          initial={{ opacity: 0, rotate: 20, y: 50 }}
+          animate={{ opacity: 0.15, rotate: 20, y: 0 }}
+          transition={{ duration: 1.2, delay: 0.5 }}
+          className="absolute w-28 h-28 object-cover rounded-lg -top-5 -right-12 shadow-2xl"
+        />
+
+        {/* Bottom Left */}
+        <motion.img
+          src="/src/assets/gallery/חאלקה/חאלקה (1).jpg"
+          alt="scattered"
+          initial={{ opacity: 0, rotate: 25, y: -50 }}
+          animate={{ opacity: 0.15, rotate: 25, y: 0 }}
+          transition={{ duration: 1.2, delay: 0.7 }}
+          className="absolute w-36 h-36 object-cover rounded-lg -bottom-8 -left-20 shadow-2xl"
+        />
+
+        {/* Bottom Right */}
+        <motion.img
+          src="/src/assets/gallery/חוץ/חוץ (1).jpg"
+          alt="scattered"
+          initial={{ opacity: 0, rotate: -20, y: -50 }}
+          animate={{ opacity: 0.15, rotate: -20, y: 0 }}
+          transition={{ duration: 1.2, delay: 0.4 }}
+          className="absolute w-32 h-32 object-cover rounded-lg -bottom-4 -right-16 shadow-2xl"
+        />
+
+        {/* Middle Left */}
+        <motion.img
+          src="/src/assets/gallery/מוצרים/מזון.jpg"
+          alt="scattered"
+          initial={{ opacity: 0, rotate: -10, x: -50 }}
+          animate={{ opacity: 0.12, rotate: -10, x: 0 }}
+          transition={{ duration: 1.2, delay: 0.6 }}
+          className="absolute w-24 h-24 object-cover rounded-lg top-1/4 -left-10 shadow-2xl"
+        />
+
+        {/* Middle Right */}
+        <motion.img
+          src="/src/assets/gallery/גיל שנה/גיל שנה (12).jpg"
+          alt="scattered"
+          initial={{ opacity: 0, rotate: 15, x: 50 }}
+          animate={{ opacity: 0.12, rotate: 15, x: 0 }}
+          transition={{ duration: 1.2, delay: 0.5 }}
+          className="absolute w-28 h-28 object-cover rounded-lg bottom-1/3 -right-8 shadow-2xl"
+        />
+      </div>
+
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
