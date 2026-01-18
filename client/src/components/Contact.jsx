@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { Phone, Mail, Loader2 } from 'lucide-react';
 import emailjs from '@emailjs/browser';
 import GoldenGlitter from './GoldenGlitter';
+import logo from '../assets/Black And White Camera Store Logo - black.png';
 
 const EMAILJS_CONFIG = {
   SERVICE_ID: import.meta.env.VITE_EMAILJS_SERVICE_ID,
@@ -114,6 +115,18 @@ const Contact = () => {
           viewport={{ once: true, amount: 0.2 }}
           className="flex flex-col items-center text-center"
         >
+          {/* Logo */}
+          <motion.div
+            variants={itemVariants}
+            className="mb-12"
+          >
+            <img 
+              src={logo} 
+              alt="Racheli Ostrov Logo" 
+              className="h-40 w-auto filter brightness-0 invert"
+            />
+          </motion.div>
+
           {/* Title */}
           <motion.h2
             variants={itemVariants}

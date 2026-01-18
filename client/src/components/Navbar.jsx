@@ -25,21 +25,21 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="bg-background text-textDark py-3 px-6 sticky top-0 z-50 shadow-lg backdrop-blur-md border-b border-primary/30 h-16">
+    <nav className="bg-background text-textDark sticky top-0 z-50 shadow-lg backdrop-blur-md border-b border-primary/30" style={{ height: '32px' }}>
       {showGlitter && <GoldenGlitter x={glitterCoords.x} y={glitterCoords.y} count={8} />}
-      <div className="container mx-auto flex justify-between items-center h-full gap-4">
+      <div className="flex justify-between items-center h-full px-3" style={{ gap: '8px' }}>
         {/* Left - Navigation Links */}
-        <div className="flex items-center gap-6 text-sm">
-          <a href="#home" className="text-textDark hover:text-primary transition-colors duration-300 font-medium">
+        <div className="flex items-center" style={{ gap: '12px' }}>
+          <a href="#home" className="text-textDark hover:text-primary transition-colors duration-300 font-medium" style={{ fontSize: '11px' }}>
             {t('nav.home')}
           </a>
-          <a href="#gallery" className="text-textDark hover:text-primary transition-colors duration-300 font-medium">
+          <a href="#gallery" className="text-textDark hover:text-primary transition-colors duration-300 font-medium" style={{ fontSize: '11px' }}>
             {t('nav.examples')}
           </a>
-          <a href="#booking" className="text-textDark hover:text-primary transition-colors duration-300 font-medium">
+          <a href="#booking" className="text-textDark hover:text-primary transition-colors duration-300 font-medium" style={{ fontSize: '11px' }}>
             {t('nav.booking')}
           </a>
-          <a href="#contact" className="text-textDark hover:text-primary transition-colors duration-300 font-medium">
+          <a href="#contact" className="text-textDark hover:text-primary transition-colors duration-300 font-medium" style={{ fontSize: '11px' }}>
             {t('nav.contact')}
           </a>
         </div>
@@ -47,12 +47,19 @@ const Navbar = () => {
         {/* Center - Language Toggle */}
         <button
           onClick={toggleLanguage}
-          className="bg-primary text-background px-3 py-1 rounded-md hover:bg-accent transition-all duration-300 font-medium shadow-lg hover:shadow-xl transform hover:scale-105 text-xs"
+          className="bg-primary text-background rounded-md hover:bg-accent transition-all duration-300 font-medium shadow-lg hover:shadow-xl transform hover:scale-105"
+          style={{
+            fontSize: '10px',
+            padding: '2px 6px',
+            height: '20px',
+            display: 'flex',
+            alignItems: 'center',
+          }}
         >
           {i18n.language === 'en' ? 'עב' : 'EN'}
         </button>
 
-        {/* Right - Logo (Fixed position on right/left based on RTL) */}
+        {/* Right - Logo */}
         <motion.div
           className="flex items-center cursor-pointer flex-shrink-0"
           whileHover={{ scale: 1.1 }}
@@ -61,9 +68,11 @@ const Navbar = () => {
           <img
             src={logo}
             alt="Kids Photography Logo"
-            className="h-8 w-8 invert transition-all duration-300"
             style={{
+              height: '18px',
+              width: '18px',
               filter: 'invert(1) drop-shadow(0 0 8px rgba(212, 175, 55, 0.6))',
+              transition: 'all 0.3s',
             }}
           />
         </motion.div>
