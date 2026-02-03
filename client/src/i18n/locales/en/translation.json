@@ -80,5 +80,38 @@
   "footer": {
     "rights": "All rights reserved",
     "followUs": "Follow Us"
+  },
+  "order": {
+    "title": "Order a Session",
+    "subtitle": "Fill in your details and we'll get back to you to schedule your session",
+    "form": {
+      "name": "Full Name",
+      "phone": "Phone",
+      "email": "Email",
+      "sessionType": "Session Type",
+      "selectType": "Select session type",
+      "preferredDate": "Preferred Date",
+      "notes": "Additional Notes",
+      "submit": "Submit Order",
+      "submitting": "Submitting...",
+      "success": "Order submitted successfully! We'll contact you soon.",
+      "error": "An error occurred. Please try again later.",
+      "placeholders": {
+        "name": "Enter your full name",
+        "phone": "Enter your phone number",
+        "email": "Enter your email address",
+        "notes": "Any additional details you'd like us to know..."
+      },
+      "validation": {
+        "required": "This field is required",
+        "invalidEmail": "Invalid email address"
+      }
+    },
+    "sessionTypes": {
+      "newborn": "Newborn (0-1 years)",
+      "toddler": "Toddler (1-3 years)",
+      "kids": "Kids (3-10 years)",
+      "family": "Family"
+    }
   }
 }

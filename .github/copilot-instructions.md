@@ -28,3 +28,13 @@
 |------|-----------|-------------|
 | `.github/instructions/client.instructions.md` | `client/**` | Client-specific patterns, design system, component patterns |
 | `.github/instructions/reactjs.instructions.md` | `**/*.jsx, **/*.tsx, **/*.js, **/*.ts, **/*.css, **/*.scss` | ReactJS best practices, hooks, state management |
+
+## Skills
+Skills are detailed guides located in `.github/skills/` that provide step-by-step instructions for common tasks.
+**Important**: When a task matches a skill's purpose, read the full skill file (`.github/skills/<skill-name>/SKILL.md`) before starting the task.
+
+| Skill | Description |
+|-------|-------------|
+| `create-new-component` | Complete guide for creating new React components in the client application. Covers component structure, styling patterns, animations, i18n integration, and best practices specific to this photography portfolio project. |
+| `create-server-api` | Complete guide for creating new REST API endpoints in the Express server. Covers model creation, controller logic, route setup, and server.js integration. Use when asked to "create an API", "add an endpoint", or "build a route". |
+| `make-skill-template` | Meta-skill for creating new Agent Skills. Use when asked to "create a skill", "make a new skill", or "scaffold a skill". Generates SKILL.md files with proper frontmatter, directory structure, and optional bundled resources. |
