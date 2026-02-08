@@ -199,7 +199,7 @@ const Contact = () => {
                   placeholder={t('contact.form.placeholders.name')}
                   className={`w-full px-4 py-3 rounded-lg border ${
                     errors.name ? 'border-red-400' : 'border-primary/30'
-                  } bg-white text-textDark text-base focus:outline-none focus:ring-2 focus:ring-primary/60`}
+                  } bg-lightGray text-textDark text-base focus:outline-none focus:ring-2 focus:ring-primary/60`}
                 />
                 {errors.name && <p className="text-red-400 text-sm mt-1">{errors.name}</p>}
               </div>
@@ -217,7 +217,7 @@ const Contact = () => {
                   placeholder={t('contact.form.placeholders.phone')}
                   className={`w-full px-4 py-3 rounded-lg border ${
                     errors.phone ? 'border-red-400' : 'border-primary/30'
-                  } bg-white text-textDark text-base focus:outline-none focus:ring-2 focus:ring-primary/60`}
+                  } bg-lightGray text-textDark text-base focus:outline-none focus:ring-2 focus:ring-primary/60`}
                 />
                 {errors.phone && <p className="text-red-400 text-sm mt-1">{errors.phone}</p>}
               </div>
@@ -235,7 +235,7 @@ const Contact = () => {
                   placeholder={t('contact.form.placeholders.email')}
                   className={`w-full px-4 py-3 rounded-lg border ${
                     errors.email ? 'border-red-400' : 'border-primary/30'
-                  } bg-white text-textDark text-base focus:outline-none focus:ring-2 focus:ring-primary/60`}
+                  } bg-lightGray text-textDark text-base focus:outline-none focus:ring-2 focus:ring-primary/60`}
                 />
                 {errors.email && <p className="text-red-400 text-sm mt-1">{errors.email}</p>}
               </div>
@@ -251,7 +251,7 @@ const Contact = () => {
                   onChange={handleChange}
                   className={`w-full px-4 py-3 rounded-lg border ${
                     errors.type ? 'border-red-400' : 'border-primary/30'
-                  } bg-white text-textDark text-base focus:outline-none focus:ring-2 focus:ring-primary/60`}
+                  } bg-lightGray text-textDark text-base focus:outline-none focus:ring-2 focus:ring-primary/60`}
                 >
                   <option value="">{t('contact.form.placeholders.selectType')}</option>
                   <option value="general">{t('contact.form.types.general')}</option>
@@ -275,7 +275,7 @@ const Contact = () => {
                   rows="5"
                   className={`w-full px-4 py-3 rounded-lg border ${
                     errors.message ? 'border-red-400' : 'border-primary/30'
-                  } bg-white text-textDark text-base focus:outline-none focus:ring-2 focus:ring-primary/60 resize-none`}
+                  } bg-lightGray text-textDark text-base focus:outline-none focus:ring-2 focus:ring-primary/60 resize-none`}
                 />
                 {errors.message && <p className="text-red-400 text-sm mt-1">{errors.message}</p>}
               </div>
