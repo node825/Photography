@@ -29,6 +29,7 @@ Skills are reusable agent capabilities located in `.github/skills/`. Each skill 
 |-------|-------------|------------------|
 | **[make-skill-template](.github/skills/make-skill-template/SKILL.md)** | Create new Agent Skills for GitHub Copilot. Generates SKILL.md files with proper frontmatter, directory structure, and optional bundled resources. | "create a skill", "make a new skill", "scaffold a skill" |
 | **[react-component](.github/skills/react-component/SKILL.md)** | Create React components with Framer Motion animations, i18n translations, Tailwind styling, and proper project conventions. | "create a component", "add a new section", "build a React component", "scaffold a component" |
+| **[document-feature](.github/skills/document-feature/SKILL.md)** | Create documentation for components, APIs, hooks, and features with clear templates. Produces organized markdown files under doc/ with examples. | "document a component", "write API docs", "add feature documentation", "document a feature" |
 
 To create a new skill, use the `make-skill-template` skill or manually create a folder in `.github/skills/<skill-name>/` with a `SKILL.md` file.
 
@@ -36,6 +37,7 @@ To create a new skill, use the `make-skill-template` skill or manually create a 
 - **NO Hebrew text in code** - All code, comments, variable names must be in English. Hebrew is only allowed in `locales/he/translation.json`
 - **NO emojis in files** - Do not use emojis anywhere in the codebase
 - **Add component to Home.jsx** - New sections must be imported and rendered in [client/src/pages/Home.jsx](client/src/pages/Home.jsx#L1)
+- **Document changes in `doc/`** - For every change or addition of a new feature, add or update documentation in the `doc/` folder
 
 ## Project Overview
 Bilingual (Hebrew RTL / English LTR) kids photography portfolio & booking website. Photographer: Racheli Ostrov (r4199158@gmail.com, 053-419-9158).
