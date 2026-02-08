@@ -63,6 +63,16 @@ kids-photography/
 - 📱 Fully responsive design
 - ✨ Smooth animations with Framer Motion
 
+## Documentation
+
+📚 **[Complete Services Documentation](./docs/README.md)** - תיעוד מלא של כל השרותים
+
+Comprehensive documentation covering:
+- **[API Documentation](./docs/api/bookings-api.md)** - REST API endpoints and examples
+- **[Architecture Overview](./docs/ARCHITECTURE.md)** - System design and patterns
+- **[Services Documentation](./docs/services/)** - Backend services and business logic
+- **[Data Models](./docs/models/booking-model.md)** - Database schemas and validation
+
 ## Development Status
 
 🚧 Project in development
