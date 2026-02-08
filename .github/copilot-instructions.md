@@ -30,6 +30,7 @@ Skills are reusable agent capabilities located in `.github/skills/`. Each skill 
 | **[make-skill-template](.github/skills/make-skill-template/SKILL.md)** | Create new Agent Skills for GitHub Copilot. Generates SKILL.md files with proper frontmatter, directory structure, and optional bundled resources. | "create a skill", "make a new skill", "scaffold a skill" |
 | **[react-component](.github/skills/react-component/SKILL.md)** | Create React components with Framer Motion animations, i18n translations, Tailwind styling, and proper project conventions. | "create a component", "add a new section", "build a React component", "scaffold a component" |
 | **[document-feature](.github/skills/document-feature/SKILL.md)** | Create documentation for components, APIs, hooks, and features with clear templates. Produces organized markdown files under doc/ with examples. | "document a component", "write API docs", "add feature documentation", "document a feature" |
+| **[db-save-helper](.github/skills/db-save-helper/SKILL.md)** | Create MongoDB models and Express controllers for saving data to the database. Generates properly structured models with validation, controllers with error handling, and follows project conventions. Includes comprehensive reference docs and templates. | "save to database", "create a model", "add database storage", "create CRUD operations", "store data in DB" |
 
 To create a new skill, use the `make-skill-template` skill or manually create a folder in `.github/skills/<skill-name>/` with a `SKILL.md` file.
 
