@@ -1,7 +1,19 @@
 {
   "permissions": {
     "allow": [
-      "Bash(python init_skill.py:*)"
+      "Bash(python init_skill.py:*)",
+      "mcp__atlassian__searchJiraIssuesUsingJql",
+      "Bash(dir:*)",
+      "Bash(powershell -File:*)",
+      "Bash(curl:*)",
+      "Bash(netstat:*)",
+      "Bash(tasklist:*)",
+      "Bash(timeout /t 3)",
+      "Bash(git -C \"c:\\\\Users\\\\Ostrov\\\\Documents\\\\Project\\\\Photography\" status)",
+      "Bash(git -C \"c:\\\\Users\\\\Ostrov\\\\Documents\\\\Project\\\\Photography\" diff --stat)",
+      "Bash(git -C \"c:\\\\Users\\\\Ostrov\\\\Documents\\\\Project\\\\Photography\" log --oneline -5)",
+      "Bash(git -C \"c:\\\\Users\\\\Ostrov\\\\Documents\\\\Project\\\\Photography\" diff server/controllers/bookingController.js)",
+      "Bash(git -C \"c:\\\\Users\\\\Ostrov\\\\Documents\\\\Project\\\\Photography\" diff server/routes/bookings.js)"
     ]
   }
 }

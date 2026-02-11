@@ -102,7 +102,7 @@ const getAvailableDates = async (req, res) => {
     const bookings = await Booking.find({ status: { $ne: 'cancelled' } })
       .select('preferredDate');
 
-    const bookedDates = bookings.map(booking => 
+    const bookedDates = bookings.map(booking =>
       booking.preferredDate.toISOString().split('T')[0]
     );
 
@@ -118,9 +118,53 @@ const getAvailableDates = async (req, res) => {
   }
 };
 
+// @desc    Verify booking by ID and email
+// @route   POST /api/bookings/verify
+// @access  Public
+const verifyBooking = async (req, res) => {
+  try {
+    const { bookingId, email } = req.body;
+
+    if (!bookingId || !email) {
+      return res.status(400).json({
+        success: false,
+        message: 'Please provide both booking ID and email'
+      });
+    }
+
+    const booking = await Booking.findOne({
+      _id: bookingId,
+      email: email.toLowerCase()
+    });
+
+    if (!booking) {
+      return res.status(404).json({
+        success: false,
+        message: 'Booking not found or email does not match'
+      });
+    }
+
+    res.status(200).json({
+      success: true,
+      data: {
+        clientName: booking.clientName,
+        sessionType: booking.sessionType,
+        preferredDate: booking.preferredDate,
+        status: booking.status
+      }
+    });
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: error.message
+    });
+  }
+};
+
 module.exports = {
   createBooking,
   getAllBookings,
   getBooking,
-  getAvailableDates
+  getAvailableDates,
+  verifyBooking
 };

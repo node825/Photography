@@ -4,7 +4,8 @@ const {
   createBooking,
   getAllBookings,
   getBooking,
-  getAvailableDates
+  getAvailableDates,
+  verifyBooking
 } = require('../controllers/bookingController');
 
 router.route('/')
@@ -13,6 +14,9 @@ router.route('/')
 
 router.route('/available-dates')
   .get(getAvailableDates);
+
+router.route('/verify')
+  .post(verifyBooking);
 
 router.route('/:id')
   .get(getBooking);

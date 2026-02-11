@@ -21,6 +21,7 @@ app.use(express.urlencoded({ extended: true }));
 
 // Routes
 app.use('/api/bookings', require('./routes/bookings'));
+app.use('/api/digital-album-orders', require('./routes/digitalAlbumOrders'));
 
 // Health check route
 app.get('/api/health', (req, res) => {
