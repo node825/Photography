@@ -11,6 +11,8 @@ export default {
         secondary: '#B8956A',      // Warm gold (for subtle backgrounds)
         accent: '#DAA520',         // Golden rod (for buttons, CTAs)
         accentDark: '#AA8C2C',     // Darker gold (for hover states)
+        blue: '#3B82F6',           // Bright blue (for menu accents)
+        blueDark: '#1E40AF',       // Dark blue (for menu hover states)
         background: '#0F0F0F',     // Deep black (main background)
         lightPink: '#1A1A1A',      // Very dark gray (for sections)
         mediumPink: '#2A2A2A',     // Medium dark gray

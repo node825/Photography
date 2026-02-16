@@ -25,21 +25,21 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="bg-background text-textDark sticky top-0 z-50 shadow-lg backdrop-blur-md border-b border-primary/30" style={{ height: '32px' }}>
+    <nav className="bg-background text-textDark sticky top-0 z-50 shadow-lg backdrop-blur-md border-b border-blue/30" style={{ height: '32px' }}>
       {showGlitter && <GoldenGlitter x={glitterCoords.x} y={glitterCoords.y} count={8} />}
       <div className="flex justify-between items-center h-full px-3" style={{ gap: '8px' }}>
         {/* Left - Navigation Links */}
         <div className="flex items-center" style={{ gap: '12px' }}>
-          <a href="#home" className="text-textDark hover:text-primary transition-colors duration-300 font-medium" style={{ fontSize: '11px' }}>
+          <a href="#home" className="text-textDark hover:text-blue transition-colors duration-300 font-medium" style={{ fontSize: '11px' }}>
             {t('nav.home')}
           </a>
-          <a href="#gallery" className="text-textDark hover:text-primary transition-colors duration-300 font-medium" style={{ fontSize: '11px' }}>
+          <a href="#gallery" className="text-textDark hover:text-blue transition-colors duration-300 font-medium" style={{ fontSize: '11px' }}>
             {t('nav.examples')}
           </a>
-          <a href="#booking" className="text-textDark hover:text-primary transition-colors duration-300 font-medium" style={{ fontSize: '11px' }}>
+          <a href="#booking" className="text-textDark hover:text-blue transition-colors duration-300 font-medium" style={{ fontSize: '11px' }}>
             {t('nav.booking')}
           </a>
-          <a href="#contact" className="text-textDark hover:text-primary transition-colors duration-300 font-medium" style={{ fontSize: '11px' }}>
+          <a href="#contact" className="text-textDark hover:text-blue transition-colors duration-300 font-medium" style={{ fontSize: '11px' }}>
             {t('nav.contact')}
           </a>
         </div>
@@ -47,7 +47,7 @@ const Navbar = () => {
         {/* Center - Language Toggle */}
         <button
           onClick={toggleLanguage}
-          className="bg-primary text-background rounded-md hover:bg-accent transition-all duration-300 font-medium shadow-lg hover:shadow-xl transform hover:scale-105"
+          className="bg-blue text-background rounded-md hover:bg-blueDark transition-all duration-300 font-medium shadow-lg hover:shadow-xl transform hover:scale-105"
           style={{
             fontSize: '10px',
             padding: '2px 6px',
