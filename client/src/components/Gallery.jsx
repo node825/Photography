@@ -1,10 +1,13 @@
 import { motion } from 'framer-motion';
-import { useState } from 'react';
+import { useState, useMemo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
+import ImageZoom from './ImageZoom';
 
 const Gallery = () => {
   const { t } = useTranslation();
   const [selectedCategory, setSelectedCategory] = useState('all');
+  const [zoomOpen, setZoomOpen] = useState(false);
+  const [zoomIndex, setZoomIndex] = useState(0);
 
   // Gallery data organized by category with multiple images
   const galleryData = {
@@ -73,6 +76,26 @@ const Gallery = () => {
   const visibleCategories = selectedCategory === 'all'
     ? Object.keys(galleryData)
     : [selectedCategory];
+
+  // Flat list of all visible images for zoom navigation
+  const allVisibleImages = useMemo(() =>
+    visibleCategories.flatMap((key) => galleryData[key].images),
+    [visibleCategories]
+  );
+
+  const openZoom = useCallback((image) => {
+    const index = allVisibleImages.indexOf(image);
+    setZoomIndex(index >= 0 ? index : 0);
+    setZoomOpen(true);
+  }, [allVisibleImages]);
+
+  const handleNext = useCallback(() => {
+    setZoomIndex((prev) => (prev + 1) % allVisibleImages.length);
+  }, [allVisibleImages.length]);
+
+  const handlePrevious = useCallback(() => {
+    setZoomIndex((prev) => (prev - 1 + allVisibleImages.length) % allVisibleImages.length);
+  }, [allVisibleImages.length]);
 
   return (
     <section id="gallery" className="py-24 px-4 bg-background relative overflow-hidden">
@@ -155,7 +178,8 @@ const Gallery = () => {
                       viewport={{ once: true }}
                       transition={{ duration: 0.5, delay: index * 0.1 }}
                       whileHover={{ y: -8 }}
-                      className="group relative overflow-hidden rounded-xl aspect-square"
+                      className="group relative overflow-hidden rounded-xl aspect-square cursor-pointer"
+                      onClick={() => openZoom(image)}
                     >
                       {/* Image */}
                       <motion.img
@@ -181,6 +205,15 @@ const Gallery = () => {
           })}
         </div>
       </div>
+
+      <ImageZoom
+        images={allVisibleImages}
+        currentIndex={zoomIndex}
+        isOpen={zoomOpen}
+        onClose={() => setZoomOpen(false)}
+        onNext={handleNext}
+        onPrevious={handlePrevious}
+      />
     </section>
   );
 };
