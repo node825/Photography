@@ -1,0 +1,32 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(where gh:*)",
+      "Bash(mkdir -p C:/Users/Ostrov/Documents/Project/Photography/create-doc/.claude-plugin && mkdir -p C:/Users/Ostrov/Documents/Project/Photography/create-doc/commands && mkdir -p C:/Users/Ostrov/Documents/Project/Photography/create-doc/agents && mkdir -p C:/Users/Ostrov/Documents/Project/Photography/create-doc/skills/documentation-patterns)"
+    ]
+  },
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "jq -r '\"\\(.tool_input.command) - \\(.tool_input.description // \"No description\")\"' >> ~/.claude/bash-command-log.txt"
+          }
+        ]
+      }
+    ],
+    "UserPromptSubmit": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python C:/Users/Ostrov/Documents/Project/Photography/.claude/hooks/check_env_prompt.py"
+          }
+        ]
+      }
+    ]
+  }
+}

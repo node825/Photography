@@ -1,0 +1,9 @@
+{
+  "name": "fs-plugin",
+  "description": "Claude Agent fs Development Plugin",
+  "author": {
+    "name": "Neomi",
+    "email": "support@anthropic.com"
+  },
+    "version": "1.0.0"  
+}
