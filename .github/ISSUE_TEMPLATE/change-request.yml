@@ -1,0 +1,52 @@
+name: Change request (pre-spec)
+description: Intake for a new change — an agent drafts the spec
+title: "[Change]: "
+labels: [needs-spec]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Describe the change in intent terms. Do not propose an
+        implementation — a spec agent will draft that from this form.
+
+  - type: textarea
+    id: intent
+    attributes:
+      label: Intent — what and why
+      description: The outcome you want and the reason it matters.
+      placeholder: Users cannot filter the photo list, so they scroll.
+    validations:
+      required: true
+
+  - type: textarea
+    id: scope
+    attributes:
+      label: In scope / out of scope
+      description: Be explicit about what this change does NOT include.
+      placeholder: |
+        In: filtering the photo list by date and tag
+        Out: saved filters, export, any other list in the app
+    validations:
+      required: true
+
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance hints — observable outcomes
+      description: How would someone know this works? Behaviour, not code.
+      placeholder: |
+        - Selecting a date range narrows the list without a page reload
+        - Clearing filters restores the full list
+
+  - type: textarea
+    id: boundaries
+    attributes:
+      label: Boundaries — what must not change
+      description: Files, behaviours or contracts the agent must not touch.
+      placeholder: |
+        - Do not change the existing API response shape
+        - Do not add new dependencies
+        - Do not run npm audit fix
+        - Do not modify anything under .github/
+    validations:
+      required: true
