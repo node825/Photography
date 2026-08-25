@@ -35,6 +35,12 @@ export const bookingAPI = {
     const response = await api.get('/bookings/available-dates');
     return response.data;
   },
+
+  // Get server health status
+  getHealth: async () => {
+    const response = await api.get('/health');
+    return response.data;
+  },
 };
 
 export default api;

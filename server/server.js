@@ -24,7 +24,7 @@ app.use('/api/bookings', require('./routes/bookings'));
 
 // Health check route
 app.get('/api/health', (req, res) => {
-  res.status(200).json({ status: 'OK', message: 'Server is running' });
+  res.status(200).json({ status: 'OK', message: 'Server is running', service: 'photography-api' });
 });
 
 // Error handler middleware

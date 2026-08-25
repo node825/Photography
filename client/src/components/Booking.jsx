@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import { Calendar, X } from 'lucide-react';
@@ -19,6 +19,25 @@ const Booking = () => {
   const [submitStatus, setSubmitStatus] = useState(null);
   const [errors, setErrors] = useState({});
   const [showSuccessModal, setShowSuccessModal] = useState(false);
+  const [serviceName, setServiceName] = useState('');
+
+  // Fetch server health once on load to surface the service identifier
+  useEffect(() => {
+    let isMounted = true;
+    bookingAPI
+      .getHealth()
+      .then((data) => {
+        if (isMounted && data?.service) {
+          setServiceName(data.service);
+        }
+      })
+      .catch(() => {
+        // Ignore health check errors; this is non-critical technical info
+      });
+    return () => {
+      isMounted = false;
+    };
+  }, []);
 
   // Get today's date in YYYY-MM-DD format for min attribute
   const getTodayDate = () => {
@@ -334,6 +353,16 @@ const Booking = () => {
               </motion.div>
             </form>
           </motion.div>
+
+          {/* Technical service identifier */}
+          {serviceName && (
+            <motion.p
+              variants={itemVariants}
+              className="text-xs text-textDark/60 mt-6 text-center"
+            >
+              {serviceName}
+            </motion.p>
+          )}
         </motion.div>
       </div>
 
