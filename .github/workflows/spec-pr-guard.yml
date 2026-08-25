@@ -1,7 +1,11 @@
-# Enforces the spec-PR contract documented in .github/agents/openspec.agent.md:
-# a PR titled `[spec] ...` must touch only files under openspec/. This is a
-# path-only guard — it does not validate spec content, run lint, or run
-# `openspec validate`.
+# Enforces the spec-PR contract documented in .github/agents/openspec.agent.md,
+# in both directions:
+#   - a PR titled `[spec] ...` must touch only files under openspec/
+#   - any other PR must NOT touch anything under openspec/
+# Runs on every PR (no title filter on the job) so a PR can't dodge the rule
+# by never using the [spec] prefix, or by editing the title away after a
+# failure. Path-only guard — it does not validate spec content, run lint, or
+# run `openspec validate`.
 
 name: "Spec PR Guard"
 
@@ -14,7 +18,6 @@ permissions:
 
 jobs:
   spec-pr-guard:
-    if: startsWith(github.event.pull_request.title, '[spec]')
     runs-on: ubuntu-latest
     timeout-minutes: 5
 
@@ -29,11 +32,17 @@ jobs:
           ref: ${{ github.event.pull_request.head.sha }}
           fetch-depth: 0
 
-      - name: Verify changed files are scoped to openspec/
+      - name: Verify openspec/ path scope matches PR title
         env:
           BASE_REF: ${{ github.event.pull_request.base.ref }}
+          PR_TITLE: ${{ github.event.pull_request.title }}
         run: |
           set -euo pipefail
+
+          case "$PR_TITLE" in
+            "[spec]"*) IS_SPEC=true ;;
+            *) IS_SPEC=false ;;
+          esac
 
           CHANGED_FILES="$(git diff --name-only "origin/${BASE_REF}...HEAD")"
 
@@ -42,15 +51,30 @@ jobs:
             exit 0
           fi
 
-          OUT_OF_SCOPE="$(printf '%s\n' "$CHANGED_FILES" | grep -v '^openspec/' || true)"
+          if [ "$IS_SPEC" = "true" ]; then
+            OUT_OF_SCOPE="$(printf '%s\n' "$CHANGED_FILES" | grep -v '^openspec/' || true)"
 
-          if [ -n "$OUT_OF_SCOPE" ]; then
-            echo "::error::This PR's title starts with [spec], so it must touch only files under openspec/."
-            echo "The following changed files are outside openspec/:"
-            printf '%s\n' "$OUT_OF_SCOPE" | while IFS= read -r file; do
-              echo "::error file=${file}::File outside openspec/ in a [spec] PR"
-            done
-            exit 1
+            if [ -n "$OUT_OF_SCOPE" ]; then
+              echo "::error::This PR's title starts with [spec], so it must touch only files under openspec/."
+              echo "The following changed files are outside openspec/:"
+              printf '%s\n' "$OUT_OF_SCOPE" | while IFS= read -r file; do
+                echo "::error file=${file}::File outside openspec/ in a [spec] PR"
+              done
+              exit 1
+            fi
+
+            echo "All changed files are scoped to openspec/."
+          else
+            IN_SCOPE="$(printf '%s\n' "$CHANGED_FILES" | grep '^openspec/' || true)"
+
+            if [ -n "$IN_SCOPE" ]; then
+              echo "::error::openspec/ changes only go through a PR titled [spec]. (Archiving completed changes through a non-[spec] PR is not supported yet.)"
+              echo "The following changed files under openspec/ are not allowed in this PR:"
+              printf '%s\n' "$IN_SCOPE" | while IFS= read -r file; do
+                echo "::error file=${file}::openspec/ change outside a [spec]-titled PR"
+              done
+              exit 1
+            fi
+
+            echo "No openspec/ changes in this PR — OK."
           fi
-
-          echo "All changed files are scoped to openspec/."
