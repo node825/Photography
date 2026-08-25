@@ -66,6 +66,24 @@ When the user wants to propose a new change:
 - `openspec/changes/` — Active changes with their artifacts
 - `openspec/config.yaml` — Project configuration
 
+## Intake-driven changes (this repo)
+
+The Copilot cloud agent picks up work from an issue created with the [`.github/ISSUE_TEMPLATE/change-request.yml`](../ISSUE_TEMPLATE/change-request.yml) template, which has four fields: `intent`, `scope`, `acceptance`, `boundaries`.
+
+- `intent` and `scope` define the change.
+- `acceptance` becomes concrete scenarios in the spec.
+- `boundaries` carries into the proposal word for word — it constrains whoever implements the change afterward.
+- Sequence: `openspec new change <name>` → `openspec instructions [artifact] --change <name> --json` for each artifact → `openspec validate <name> --json` until clean.
+- Open a PR whose title starts with `[spec]` and that touches only files under `openspec/`.
+- Link the intake issue in the PR description.
+- If the intake is too vague to spec, comment on the issue with what's missing instead of guessing.
+
+### Never
+
+- Write or modify application code — anything under `client/src/` or `server/` (routes, controllers, models, middleware, config).
+- Touch anything under `.github/`.
+- Add dependencies.
+
 ## Best Practices
 
 - Always use `--json` flag when you need to parse output programmatically
