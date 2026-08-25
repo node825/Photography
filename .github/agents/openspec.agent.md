@@ -80,7 +80,7 @@ The Copilot cloud agent picks up work from an issue created with the [`.github/I
 
 ### Never
 
-- Write or modify application code — anything under `client/src/` or `server/` (routes, controllers, models, middleware, config).
+- Write or modify application code — anything under `client/` or `server/` (including `package.json` in either).
 - Touch anything under `.github/`.
 - Add dependencies.
 
