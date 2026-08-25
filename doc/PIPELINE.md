@@ -38,13 +38,12 @@ intake issue (change-request.yml)
 - **`CI / client`** — `npm ci` + `npm run build` in `client/`. No test step (none exists).
 - **`CI / server`** — `npm ci` in `server/`. No test step (placeholder script only exits 1).
 - **`CI / openspec`** — installs OpenSpec CLI `1.10.0`, runs `openspec validate --all --strict`.
-- **`Spec PR Guard / spec-pr-guard`** — on PRs titled `[spec]` only: fails if any changed file is outside `openspec/`.
+- **`Spec PR Guard / spec-pr-guard`** — runs on every PR, bidirectional: `[spec]`-titled PRs must touch only `openspec/`; any other PR must not touch `openspec/` at all.
 
 ## Known limitations
 
 - No test suite in `client/` or `server/`. Adding one is intended to be the first change run through this pipeline end to end.
 - `CI / openspec` passes vacuously today — `openspec/changes/` and `openspec/specs/` are empty, so there is nothing to validate yet.
-- `Spec PR Guard` checks file paths only, not spec content, and only runs on PRs already titled `[spec]` — a PR that never uses that prefix is not checked by it at all. Not yet closed.
 - None of the four checks are required yet — no branch ruleset enforces them.
 
 ## Runbook (browser only)
