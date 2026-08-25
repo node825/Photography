@@ -1,0 +1,56 @@
+# Enforces the spec-PR contract documented in .github/agents/openspec.agent.md:
+# a PR titled `[spec] ...` must touch only files under openspec/. This is a
+# path-only guard — it does not validate spec content, run lint, or run
+# `openspec validate`.
+
+name: "Spec PR Guard"
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, edited]
+
+permissions:
+  contents: read
+
+jobs:
+  spec-pr-guard:
+    if: startsWith(github.event.pull_request.title, '[spec]')
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      # Pin to the PR's actual head commit (not the default merge ref) so the
+      # diff below reflects exactly what the PR branch contains, and so a
+      # force-push always re-checks the current head via the `synchronize`
+      # trigger rather than a stale merge commit.
+      - name: Checkout PR head with full history
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          fetch-depth: 0
+
+      - name: Verify changed files are scoped to openspec/
+        env:
+          BASE_REF: ${{ github.event.pull_request.base.ref }}
+        run: |
+          set -euo pipefail
+
+          CHANGED_FILES="$(git diff --name-only "origin/${BASE_REF}...HEAD")"
+
+          if [ -z "$CHANGED_FILES" ]; then
+            echo "No changed files between origin/${BASE_REF} and HEAD."
+            exit 0
+          fi
+
+          OUT_OF_SCOPE="$(printf '%s\n' "$CHANGED_FILES" | grep -v '^openspec/' || true)"
+
+          if [ -n "$OUT_OF_SCOPE" ]; then
+            echo "::error::This PR's title starts with [spec], so it must touch only files under openspec/."
+            echo "The following changed files are outside openspec/:"
+            printf '%s\n' "$OUT_OF_SCOPE" | while IFS= read -r file; do
+              echo "::error file=${file}::File outside openspec/ in a [spec] PR"
+            done
+            exit 1
+          fi
+
+          echo "All changed files are scoped to openspec/."
