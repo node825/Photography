@@ -3,6 +3,7 @@ import Hero from '../components/Hero';
 import Gallery from '../components/Gallery';
 import Booking from '../components/Booking';
 import Contact from '../components/Contact';
+import Newsletter from '../components/Newsletter';
 import Footer from '../components/Footer';
 import FloatingSquares from '../components/FloatingSquares';
 import GlobalMouseEffect from '../components/GlobalMouseEffect';
@@ -22,6 +23,7 @@ const Home = () => {
         <Gallery />
         <Booking />
         <Contact />
+        <Newsletter />
         <Footer />
       </div>
     </div>

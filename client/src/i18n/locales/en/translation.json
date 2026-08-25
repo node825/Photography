@@ -98,5 +98,19 @@
   "footer": {
     "rights": "All rights reserved",
     "followUs": "Follow Us"
+  },
+  "newsletter": {
+    "title": "Join Our Newsletter",
+    "subtitle": "Subscribe to get updates on new sessions, special offers, and photography tips.",
+    "emailLabel": "Email address",
+    "placeholder": "Enter your email address",
+    "submit": "Subscribe",
+    "sending": "Subscribing...",
+    "success": "Thank you for subscribing! Watch your inbox for updates.",
+    "error": "Subscription failed. Please check your email and try again.",
+    "validation": {
+      "required": "This field is required",
+      "invalidEmail": "Please enter a valid email address"
+    }
   }
 }
