@@ -1,22 +1,15 @@
-# booking
+# Booking Capability
 
 ## ADDED Requirements
 
-### Requirement: Booking section surfaces the API service identifier
+### Requirement: Booking Section Health Indicator
+The Booking section SHALL display a small technical text containing the string `"photography-api"`, sourced from the `GET /api/health` response via the existing `bookingAPI` client, after the page has loaded.
 
-The Booking section SHALL retrieve the health information through the existing
-booking API client and display the returned `service` value as small technical
-text, without altering the booking form's fields, validation, submission, or
-success modal, and without introducing new translation keys.
-
-#### Scenario: Service identifier is visible after the page loads
-
-- **WHEN** the Booking section finishes loading
-- **THEN** small technical text containing the string `photography-api` is
-  visible in the Booking section
+#### Scenario: Service identifier appears in the Booking section
+- **WHEN** the page has loaded and the Booking section is rendered
+- **THEN** the Booking section contains a small technical text that includes the string `"photography-api"`
 
 #### Scenario: Booking form behavior is unchanged
-
-- **WHEN** a user completes and submits the booking form
-- **THEN** the fields, validation, submission, and success modal behave exactly
-  as before the change, with no observable regression
+- **WHEN** a user interacts with the booking form fields, validation, submission, and success modal
+- **THEN** the form behaves exactly as before with no observable regression
+- **AND** no new translation key or design change beyond one line of technical text is introduced

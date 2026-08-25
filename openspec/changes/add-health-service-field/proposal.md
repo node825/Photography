@@ -1,30 +1,26 @@
-# Add static health service field surfaced in the Booking section
+# Change: Static health field surfaced in the Booking section
 
 ## Why
 
-Nothing currently proves end-to-end that the OpenSpec pipeline (intake issue →
-spec → implementation) can touch both `client/` and `server/` in a single
-change. A minimal smoke-test change that touches both sides closes this gap.
-See issue #14.
+Nothing currently proves end-to-end that the OpenSpec pipeline (intake form → spec → implementation) can touch both `client/` and `server/` in a single change. A minimal smoke-test change that exercises both sides closes this gap, giving us confidence that the intake → spec → implementation flow works across the full stack before larger changes rely on it.
 
 ## What Changes
 
-- Add a static `service: "photography-api"` field to the existing
-  `GET /api/health` JSON response, in addition to the existing `status` and
-  `message` fields, without changing them.
-- Read the health response through the existing booking API client so the
-  Booking section can access it.
-- Surface the `service` value as small technical text in the Booking section
-  after the page loads.
+- **Server:** Add one static field, `service: "photography-api"`, to the existing `GET /api/health` JSON response. The existing `status` and `message` fields remain unchanged, and no new endpoint or file is created.
+- **Client (`bookingAPI`):** Add a `getHealth` method to the existing `bookingAPI` object in `client/src/utils/api.js` that calls the existing `GET /api/health` endpoint. No new file is created.
+- **Client (Booking section):** On load, `client/src/components/Booking.jsx` fetches health via `bookingAPI` and renders a small technical text containing the string `"photography-api"` inside the Booking section. The booking form (fields, validation, submission, success modal) behaves exactly as before, with no observable regression.
 
-Out of scope: any new endpoint, any new file (beyond this proposal), any change
-to booking logic/validation/submission, any new translation key, any design
-change beyond one line of text, any docs or workflow change, and any new
-dependency.
+### Boundaries — what must not change
+
+Only these files may be touched by the implementation:
+
+- `server/server.js`
+- `client/src/utils/api.js`
+- `client/src/components/Booking.jsx`
+
+Nothing else — including `.github/`, `doc/`, `openspec/` (except this new change directory), locale files, or any other component. No new endpoint. No new file. No change to booking logic/validation/submission. No new translation key. No design change beyond one line of text. No docs or workflows. No new dependencies. Do not run `npm audit fix`.
 
 ## Impact
 
-- Affected specs: `health-check` (new capability), `booking` (new capability)
-- Affected code: `server/server.js`, `client/src/utils/api.js`,
-  `client/src/components/Booking.jsx`
-- No new dependencies. Booking behavior is unchanged; no observable regression.
+- Affected specs: `health`, `booking`
+- Affected code: `server/server.js`, `client/src/utils/api.js`, `client/src/components/Booking.jsx`
