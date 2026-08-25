@@ -1,0 +1,94 @@
+# CI checks for client/, server/, and openspec/. Node version, actions, and
+# npm cache paths are kept in sync with .github/workflows/copilot-setup-steps.yml.
+#
+# There is currently no real test suite in this repo: client/package.json has
+# no "test" script, and server/package.json's "test" script is npm's default
+# placeholder that always exits 1 (see AGENTS.md). Test steps are intentionally
+# omitted until real tests exist — add them here once they do.
+
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  client:
+    name: client
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    permissions:
+      contents: read
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "24.11.0"
+          cache: npm
+          cache-dependency-path: |
+            client/package-lock.json
+            server/package-lock.json
+
+      - name: Install client dependencies
+        run: npm ci --prefix client
+
+      - name: Build client
+        run: npm run build --prefix client
+
+  server:
+    name: server
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    permissions:
+      contents: read
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "24.11.0"
+          cache: npm
+          cache-dependency-path: |
+            client/package-lock.json
+            server/package-lock.json
+
+      - name: Install server dependencies
+        run: npm ci --prefix server
+
+  openspec:
+    name: openspec
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    permissions:
+      contents: read
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "24.11.0"
+          cache: npm
+          cache-dependency-path: |
+            client/package-lock.json
+            server/package-lock.json
+
+      - name: Install OpenSpec CLI
+        run: npm install -g @fission-ai/openspec@1.10.0
+
+      - name: Validate OpenSpec artifacts
+        run: openspec validate --all --strict --no-interactive
