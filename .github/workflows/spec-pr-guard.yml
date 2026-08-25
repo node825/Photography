@@ -39,6 +39,17 @@ jobs:
         run: |
           set -euo pipefail
 
+          # Root cause of a real production failure (PR #12): GitHub can hand
+          # us a title with leading/trailing whitespace (e.g. "    [spec]
+          # test A"), which fails an exact "[spec]"* prefix match and
+          # silently misclassifies a spec PR as non-spec. Trim defensively —
+          # pure bash parameter expansion, no external tools, and (unlike
+          # `echo $PR_TITLE`) no pathname expansion on a title containing
+          # `*` or `?`.
+          RAW_TITLE="$PR_TITLE"
+          PR_TITLE="${PR_TITLE#"${PR_TITLE%%[![:space:]]*}"}"
+          PR_TITLE="${PR_TITLE%"${PR_TITLE##*[![:space:]]}"}"
+
           # The quotes around "[spec]" are load-bearing: in a POSIX case
           # pattern, [ and ] are glob metacharacters (a bracket expression /
           # character class) unless quoted. Without the quotes, "[spec]"
@@ -49,7 +60,8 @@ jobs:
             *) IS_SPEC=false ;;
           esac
 
-          echo "PR title: '${PR_TITLE}' -> classified as $([ "$IS_SPEC" = "true" ] && echo spec || echo non-spec)"
+          echo "PR title (raw): '${RAW_TITLE}'"
+          echo "PR title (trimmed): '${PR_TITLE}' -> classified as $([ "$IS_SPEC" = "true" ] && echo spec || echo non-spec)"
 
           CHANGED_FILES="$(git diff --name-only "origin/${BASE_REF}...HEAD")"
 
