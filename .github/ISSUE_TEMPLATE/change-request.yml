@@ -42,11 +42,12 @@ body:
     id: boundaries
     attributes:
       label: Boundaries — what must not change
-      description: Files, behaviours or contracts the agent must not touch.
+      description: >
+        Files, behaviours or contracts the agent must not touch.
+        Leave blank only if you genuinely have none — an empty
+        boundaries field means the agent may touch anything in scope.
       placeholder: |
         - Do not change the existing API response shape
         - Do not add new dependencies
         - Do not run npm audit fix
         - Do not modify anything under .github/
-    validations:
-      required: true
