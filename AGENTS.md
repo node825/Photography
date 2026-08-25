@@ -55,6 +55,8 @@ npx eslint src\components\Booking.jsx
 
 There is no configured project test runner or test suite. The server's `npm test` command is a placeholder that exits with an error, so no valid full-suite or single-test command currently exists.
 
+A `[spec]` PR from the change-request intake pipeline is done when the `client` build and the `openspec validate` check both pass — there is no test gate yet. Tests will be introduced via the first change that runs through the pipeline itself (intake issue → spec agent → `[spec]` PR → implementation).
+
 To smoke-test a running backend:
 
 ```powershell
