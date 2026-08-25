@@ -32,3 +32,4 @@ githubCopilot:
 #     archive:
 #       guidance:
 #         - Summarize the archive outcome before finishing
+# guard test C
