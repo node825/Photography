@@ -9,6 +9,11 @@ body:
         Describe the change in intent terms. Do not propose an
         implementation — a spec agent will draft that from this form.
 
+        A [spec] PR drafted from this issue is done when the build
+        passes and `openspec validate` passes. This repo has no test
+        suite yet — tests will be introduced via the first change that
+        runs through this pipeline end to end.
+
   - type: textarea
     id: intent
     attributes:
