@@ -39,10 +39,17 @@ jobs:
         run: |
           set -euo pipefail
 
+          # The quotes around "[spec]" are load-bearing: in a POSIX case
+          # pattern, [ and ] are glob metacharacters (a bracket expression /
+          # character class) unless quoted. Without the quotes, "[spec]"
+          # would match a single character that is one of s, p, e, or c —
+          # not the literal string "[spec]". Do not remove them.
           case "$PR_TITLE" in
             "[spec]"*) IS_SPEC=true ;;
             *) IS_SPEC=false ;;
           esac
+
+          echo "PR title: '${PR_TITLE}' -> classified as $([ "$IS_SPEC" = "true" ] && echo spec || echo non-spec)"
 
           CHANGED_FILES="$(git diff --name-only "origin/${BASE_REF}...HEAD")"
 
