@@ -22,7 +22,15 @@ const createSubscriber = async (req, res) => {
       });
     }
 
-    res.status(400).json({
+    // Handle schema validation errors as bad input
+    if (error.name === 'ValidationError') {
+      return res.status(400).json({
+        success: false,
+        message: error.message
+      });
+    }
+
+    res.status(500).json({
       success: false,
       message: error.message
     });

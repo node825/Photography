@@ -112,7 +112,7 @@ const Newsletter = () => {
                   aria-label={t('newsletter.emailLabel')}
                   className={`w-full px-4 py-3 rounded-lg border ${
                     errors.email ? 'border-red-400' : 'border-primary/30'
-                  } bg-white text-textDark text-base focus:outline-none focus:ring-2 focus:ring-primary/60`}
+                  } bg-mediumGray text-textLight text-base focus:outline-none focus:ring-2 focus:ring-primary/60`}
                 />
               </div>
 
@@ -138,7 +138,7 @@ const Newsletter = () => {
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                className="mt-4 p-3 bg-green-100 border border-green-400 text-green-700 rounded-lg text-center text-sm"
+                className="mt-4 p-3 bg-green-900/40 border border-green-500/40 text-green-300 rounded-lg text-center text-sm"
               >
                 {t('newsletter.success')}
               </motion.div>
@@ -147,7 +147,7 @@ const Newsletter = () => {
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                className="mt-4 p-3 bg-red-100 border border-red-400 text-red-700 rounded-lg text-center text-sm"
+                className="mt-4 p-3 bg-red-900/40 border border-red-500/40 text-red-300 rounded-lg text-center text-sm"
               >
                 {t('newsletter.error')}
               </motion.div>
