@@ -37,4 +37,13 @@ export const bookingAPI = {
   },
 };
 
+// Newsletter API calls
+export const newsletterAPI = {
+  // Subscribe an email to the newsletter
+  subscribe: async (email) => {
+    const response = await api.post('/newsletter', { email });
+    return response.data;
+  },
+};
+
 export default api;
