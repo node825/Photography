@@ -98,5 +98,16 @@
   "footer": {
     "rights": "All rights reserved",
     "followUs": "Follow Us"
+  },
+  "theme": {
+    "title": "Site Background Color",
+    "toggle": "Choose site background color",
+    "options": {
+      "default": "Black",
+      "charcoal": "Charcoal",
+      "navy": "Navy",
+      "plum": "Plum",
+      "forest": "Forest"
+    }
   }
 }

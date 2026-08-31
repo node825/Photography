@@ -6,6 +6,7 @@ import Contact from '../components/Contact';
 import Footer from '../components/Footer';
 import FloatingSquares from '../components/FloatingSquares';
 import GlobalMouseEffect from '../components/GlobalMouseEffect';
+import BackgroundColorPicker from '../components/BackgroundColorPicker';
 
 const Home = () => {
   return (
@@ -16,6 +17,9 @@ const Home = () => {
 
       {/* Sticky Navbar - Must be outside z-10 container */}
       <Navbar />
+
+      {/* Background color picker */}
+      <BackgroundColorPicker />
 
       <div className="relative z-10">
         <Hero />
