@@ -42,10 +42,17 @@ jobs:
       - name: Install OpenSpec CLI
         run: npm install -g @fission-ai/openspec@1.10.0
 
+      # The repo-committed .claude/settings.local.json carries machine-local
+      # hooks (Windows paths) that do not exist on the runner — remove local
+      # settings so the CI run is deterministic.
+      - name: Remove machine-local Claude settings
+        run: rm -f .claude/settings.local.json
+
       - name: Run Claude Code spec agent
         uses: anthropics/claude-code-action@v1
         with:
           claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          show_full_output: true
           prompt: |
             You are the OpenSpec spec agent for this repository. Read CLAUDE.md
             first and follow its rules, including the "Never (spec agent)" list.
