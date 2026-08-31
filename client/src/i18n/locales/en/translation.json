@@ -98,5 +98,19 @@
   "footer": {
     "rights": "All rights reserved",
     "followUs": "Follow Us"
+  },
+  "newsletter": {
+    "title": "Stay in the Loop",
+    "subtitle": "Leave your email and be the first to hear about news and special offers.",
+    "email": "Email Address",
+    "placeholder": "Enter your email address",
+    "submit": "Subscribe",
+    "sending": "Subscribing...",
+    "success": "Thanks for subscribing! You're on the list.",
+    "error": "Something went wrong. Please try again.",
+    "validation": {
+      "required": "This field is required",
+      "invalidEmail": "Please enter a valid email address"
+    }
   }
 }
