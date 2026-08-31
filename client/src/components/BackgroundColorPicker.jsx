@@ -17,9 +17,9 @@ const applyBackground = (value) => {
 };
 
 const BackgroundColorPicker = () => {
-  const { t } = useTranslation();
   const [isOpen, setIsOpen] = useState(false);
   const [selected, setSelected] = useState('default');
+  const { t } = useTranslation();
 
   useEffect(() => {
     const storedId = localStorage.getItem(STORAGE_KEY);
